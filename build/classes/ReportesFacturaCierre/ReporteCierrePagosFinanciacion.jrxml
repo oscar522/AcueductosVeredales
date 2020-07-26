@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteCierrePagosFinanciacion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="91202711-ccd4-44bd-8978-d6fe8ca842ed">
+	<property name="ireport.zoom" value="1.6105100000000048"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fechaSuspen1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaSuspen2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Agua florida\\src\\ReportesFacturaCierre\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     pago_financiacion.`codigo_pago_financiacion` AS pago_financiacion_codigo_pago_financiacion,
+     pago_financiacion.`codigo_financiacion` AS pago_financiacion_codigo_financiacion,
+     pago_financiacion.`fecha_pago` AS pago_financiacion_fecha_pago,
+     pago_financiacion.`valor` AS pago_financiacion_valor,
+     financiacion.`codigo_financiacion` AS financiacion_codigo_financiacion,
+     financiacion.`documento` AS financiacion_documento,
+     financiacion.`inmueble` AS financiacion_inmueble,
+     cliente.`Nombre` AS cliente_Nombre,
+     inmueble.`codigo_inmueble` AS inmueble_codigo_inmueble,
+     inmueble.`Direccion` AS inmueble_Direccion
+FROM
+     `financiacion` financiacion INNER JOIN `pago_financiacion` pago_financiacion ON financiacion.`codigo_financiacion` = pago_financiacion.`codigo_financiacion`
+     INNER JOIN `cliente` cliente ON financiacion.`documento` = cliente.`documento`
+     INNER JOIN `inmueble` inmueble ON financiacion.`inmueble` = inmueble.`codigo_inmueble`
+     AND cliente.`documento` = inmueble.`documento` WHERE   pago_financiacion.`tipopago` = 'Financiacion' AND DATE(pago_financiacion.`fecha_pago`) BETWEEN $P{fechaSuspen1} AND $P{fechaSuspen2}]]>
+	</queryString>
+	<field name="pago_financiacion_codigo_pago_financiacion" class="java.lang.Integer"/>
+	<field name="pago_financiacion_codigo_financiacion" class="java.lang.Integer"/>
+	<field name="pago_financiacion_fecha_pago" class="java.sql.Timestamp"/>
+	<field name="pago_financiacion_valor" class="java.lang.Float"/>
+	<field name="financiacion_codigo_financiacion" class="java.lang.Integer"/>
+	<field name="financiacion_documento" class="java.lang.String"/>
+	<field name="financiacion_inmueble" class="java.lang.Integer"/>
+	<field name="cliente_Nombre" class="java.lang.String"/>
+	<field name="inmueble_codigo_inmueble" class="java.lang.Integer"/>
+	<field name="inmueble_Direccion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<frame>
+				<reportElement uuid="468b651e-f00a-45cc-8e60-82254ccbb421" mode="Opaque" x="0" y="0" width="555" height="81" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="2555f2a0-81fc-41c1-9b4a-26a2f98dc9ab" x="307" y="6" width="225" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial Narrow" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[REPORTE DE PAGOS FINANCIACIÓN]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="bd8110c2-8d21-409f-809c-ef5049c2779d" x="307" y="29" width="74" height="12" forecolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Arial Narrow"/>
+					</textElement>
+					<text><![CDATA[Fecha de Inicio ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="1f997207-63d5-4f09-9a61-c17cb486c0c0" x="307" y="44" width="74" height="12" forecolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Arial Narrow"/>
+					</textElement>
+					<text><![CDATA[Fecha de Fin]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="306ee61f-1027-4c8d-9cb3-675741ef553a" x="307" y="59" width="74" height="12" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial Narrow"/>
+					</textElement>
+					<text><![CDATA[Valor Total]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="ea6e8640-f1ad-4f57-9192-a1e1edcff36b" x="405" y="29" width="74" height="12" forecolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Arial Narrow"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{fechaSuspen1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="b06cd534-5694-4864-81ac-280c4984f55a" x="405" y="44" width="74" height="12" forecolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Arial Narrow"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{fechaSuspen2}]]></textFieldExpression>
+				</textField>
+				<subreport>
+					<reportElement uuid="63247f2d-1ca2-40c1-b817-55fe1299f68e" x="405" y="59" width="74" height="12"/>
+					<subreportParameter name="fechaSuspen1">
+						<subreportParameterExpression><![CDATA[$P{fechaSuspen1}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="fechaSuspen2">
+						<subreportParameterExpression><![CDATA[$P{fechaSuspen2}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ReporteCierrePagosFinanciacionValorTotal.jasper"]]></subreportExpression>
+				</subreport>
+				<image>
+					<reportElement uuid="25f3bfc7-fa67-43ab-bb14-331c2fe376d2" x="1" y="16" width="306" height="43"/>
+					<imageExpression><![CDATA["C:\\Sistema_Facturacion\\src\\imagenes\\LogoFactura.png"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<detail>
+		<band height="53" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="e3cfe00a-7bbb-40b7-a004-897d13524e49" x="0" y="0" width="555" height="12" forecolor="#FFFFFF" backcolor="#CCCCCC"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="e3cfe00a-7bbb-40b7-a004-897d13524e49" x="0" y="25" width="555" height="12" forecolor="#FFFFFF" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="56906c1c-c8e4-4828-a801-9ab34f4e26f7" x="1" y="0" width="85" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[Cod. Financiación]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="402b35a7-5336-4d04-b08e-ddd1cade6a07" x="1" y="12" width="85" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_financiacion_codigo_financiacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e67fe71e-56c4-4023-8229-bcfe20d2a545" x="385" y="37" width="85" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_financiacion_fecha_pago}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="56906c1c-c8e4-4828-a801-9ab34f4e26f7" x="385" y="25" width="85" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[Fecha De Pago]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="71f93ff2-9b7f-4aac-a63b-50bee95df2e3" x="470" y="37" width="85" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_financiacion_valor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="56906c1c-c8e4-4828-a801-9ab34f4e26f7" x="469" y="25" width="85" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="a8f003d3-551a-4384-aee8-2c241e654e4c" x="88" y="12" width="85" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{financiacion_documento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="56906c1c-c8e4-4828-a801-9ab34f4e26f7" x="88" y="0" width="85" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[Identificacion]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="33e3ae02-d8bf-4aef-a499-1750cdaa79e5" x="174" y="12" width="381" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_Nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="56906c1c-c8e4-4828-a801-9ab34f4e26f7" x="175" y="0" width="85" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="0d24d0ec-18f1-4901-b35a-ab94971dc9a5" x="1" y="37" width="380" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{inmueble_Direccion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="56906c1c-c8e4-4828-a801-9ab34f4e26f7" x="1" y="25" width="85" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[Direccion]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="86" y="0" width="1" height="36" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="173" y="0" width="1" height="36" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="384" y="36" width="1" height="13" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="469" y="36" width="1" height="13" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="0" y="1" width="1" height="48" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="554" y="1" width="1" height="48" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="0" y="49" width="555" height="1" forecolor="#CCCCCC"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3d4591f3-ae03-4bc2-918a-40d5ade7c67d">
+	<property name="ireport.zoom" value="1.7715610000000228"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Sistema_Facturacion\\src\\ReportesFacturaCierre\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     inmueble.`codigo_inmueble` AS inmueble_codigo_inmueble,
+     inmueble.`Direccion` AS inmueble_Direccion,
+     cliente.`documento` AS cliente_documento,
+     cliente.`Nombre` AS cliente_Nombre,
+     inmueble.`telefono` AS inmueble_telefono,
+     inmueble.`documento` AS inmueble_documento,
+     inmueble.`estado` AS inmueble_estado,
+     cliente.`telefono` AS cliente_telefono
+FROM
+     `inmueble` inmueble INNER JOIN `cliente` cliente ON inmueble.`documento` = cliente.`documento`
+
+WHERE  inmueble.`estado` = 'AC']]>
+	</queryString>
+	<field name="inmueble_codigo_inmueble" class="java.lang.Integer"/>
+	<field name="inmueble_Direccion" class="java.lang.String"/>
+	<field name="cliente_documento" class="java.lang.String"/>
+	<field name="cliente_Nombre" class="java.lang.String"/>
+	<field name="inmueble_telefono" class="java.lang.Long"/>
+	<field name="inmueble_documento" class="java.lang.String"/>
+	<field name="inmueble_estado" class="java.lang.String"/>
+	<field name="cliente_telefono" class="java.lang.Long"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="84">
+			<frame>
+				<reportElement uuid="468b651e-f00a-45cc-8e60-82254ccbb421" mode="Opaque" x="0" y="-1" width="555" height="81" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="2555f2a0-81fc-41c1-9b4a-26a2f98dc9ab" x="339" y="12" width="202" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial Narrow" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[REPORTE DE CLIENTES ACTIVOS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="306ee61f-1027-4c8d-9cb3-675741ef553a" x="363" y="45" width="74" height="12" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial Narrow"/>
+					</textElement>
+					<text><![CDATA[N° CLIENTES]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="306ee61f-1027-4c8d-9cb3-675741ef553a" x="456" y="45" width="74" height="12" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial Narrow"/>
+					</textElement>
+					<text><![CDATA[N° INMUEBLES]]></text>
+				</staticText>
+				<subreport>
+					<reportElement uuid="297d3508-0593-4186-9bca-5def9971fcdb" x="363" y="60" width="74" height="10"/>
+					<subreportParameter name="SUBREPORT_DIR"/>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ReporteCierreClientesActivosTotalCli.jasper"]]></subreportExpression>
+				</subreport>
+				<subreport>
+					<reportElement uuid="9060ae46-7d0a-491c-b86c-acfa75cb9f95" x="456" y="60" width="74" height="10"/>
+					<subreportParameter name="SUBREPORT_DIR"/>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ReporteCierreClientesActivosTotalINM.jasper"]]></subreportExpression>
+				</subreport>
+				<image>
+					<reportElement uuid="25f3bfc7-fa67-43ab-bb14-331c2fe376d2" x="1" y="21" width="347" height="43"/>
+					<imageExpression><![CDATA["C:\\Sistema_Facturacion\\src\\imagenes\\LogoFactura.png"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="2"/>
+	</columnHeader>
+	<detail>
+		<band height="14">
+			<rectangle>
+				<reportElement uuid="e3cfe00a-7bbb-40b7-a004-897d13524e49" x="0" y="0" width="555" height="12" forecolor="#FFFFFF" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="35513a1c-b765-460a-9be2-875226ca75d8" x="1" y="0" width="74" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[Codigo Inmueble]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b06d1586-9b2e-4387-b289-3261064e2dbf" x="90" y="0" width="90" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[Direccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d68c870c-3b20-414e-a51c-4cb53ee46a69" x="268" y="0" width="90" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="93ded3ab-e6d6-40ba-b484-4e2343ee280b" x="358" y="0" width="90" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="93ded3ab-e6d6-40ba-b484-4e2343ee280b" x="358" y="0" width="90" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="89" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="267" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="356" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="554" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="0" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+		</band>
+		<band height="14">
+			<textField>
+				<reportElement uuid="6aec0154-0974-471e-a418-9ebd6dbaae22" x="0" y="0" width="90" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{inmueble_codigo_inmueble}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="15636b0e-ab6d-43ac-90ff-8d2571046ea8" x="90" y="0" width="136" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{inmueble_Direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d3c47e57-c327-4301-b559-7d830bbae547" x="267" y="0" width="90" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_documento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2ab9d38e-a14a-4a45-b6e1-6872de70eb4b" x="356" y="0" width="175" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_Nombre}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="89" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="267" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="356" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="554" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="0" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+		</band>
+		<band height="14">
+			<rectangle>
+				<reportElement uuid="67aeb205-6e5d-4023-b7d0-27518c25f397" x="0" y="0" width="555" height="12" forecolor="#FFFFFF" backcolor="#D9D9D9"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="89" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="178" y="1" width="1" height="13" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="267" y="1" width="1" height="13" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="356" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="554" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="445" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="e9e659b2-03fd-42da-a2b3-07ea64da5162" x="0" y="0" width="1" height="14" forecolor="#CCCCCC"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="21"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="19">
+			<frame>
+				<reportElement uuid="468b651e-f00a-45cc-8e60-82254ccbb421" mode="Opaque" x="0" y="0" width="555" height="19" backcolor="#006699"/>
+			</frame>
+			<textField>
+				<reportElement uuid="f5570aa7-0293-4db7-8783-0b6f2486abec" mode="Opaque" x="1" y="4" width="499" height="13" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="5c200243-7d45-4cfb-89da-14f9b9bbb851" mode="Opaque" x="511" y="4" width="40" height="13" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="8cd27043-d509-40ca-bf09-5c5cc96427b7" x="8" y="4" width="100" height="13" forecolor="#FFFFFF"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

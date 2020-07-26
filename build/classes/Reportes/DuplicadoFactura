@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c67aa518-3ee6-4bbf-a536-506608841850">
+	<property name="ireport.zoom" value="1.77156100000003"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="218"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="f2a7ed51-f4b4-46da-aade-d7414d9e3088"/>
+	<parameter name="inicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Agua florida\\src\\Reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     factura.`nota` AS nota,
+     factura.`estado` AS estado,
+     factura.`codigo_factura` AS factura_codigo_factura,
+     factura.`periodo_facturacion_inicial` AS   factura_periodo_facturacion_inicial,
+     factura.`periodo_facturacion_final` AS factura_periodo_facturacion_final,
+     factura.`fecha_de_pago` AS factura_fecha_de_pago,
+     factura.`fecha_suspencion` AS factura_fecha_suspencion,
+     factura.`codigo_inmueble` AS factura_codigo_inmueble,
+     factura.`acueducto` AS factura_acueducto,
+     factura.`alcantarillado` AS factura_alcantarillado,
+     factura.`reconexion` AS factura_reconexion,
+     factura.`iva_acueducto` AS factura_iva_acueducto,
+     factura.`Iva_alcantarillado` AS factura_Iva_alcantarillado,
+     factura.`deuda_factura` AS factura_deuda_factura,
+     factura.`total_a_pagar` AS factura_total_a_pagar,
+     factura.`codigo_financiacion` AS factura_codigo_financiacion,
+     factura.`codigo_financiacion_deuda` AS    factura_codigo_financiacion_deuda,
+     inmueble.`codigo_inmueble` AS inmueble_codigo_inmueble,
+     inmueble.`Direccion` AS inmueble_Direccion,
+     inmueble.`telefono` AS inmueble_telefono,
+     inmueble.`alcantarillado` AS inmueble_alcantarillado,
+     inmueble.`Acueduto` AS inmueble_Acueduto,
+     inmueble.`documento` AS inmueble_documento,
+     cliente.`documento` AS cliente_documento,
+     cliente.`tipo_documento` AS cliente_tipo_documento,
+     cliente.`genero` AS cliente_genero,
+     cliente.`telefono` AS cliente_telefono,
+     cliente.`Nombre` AS cliente_Nombre
+FROM
+     `inmueble` inmueble INNER JOIN `factura` factura ON inmueble.`codigo_inmueble` = factura.`codigo_inmueble`
+     INNER JOIN `cliente` cliente ON inmueble.`documento` = cliente.`documento` AND factura.`fecha_de_pago` = $P{inicial}]]>
+	</queryString>
+	<field name="nota" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="factura_codigo_factura" class="java.lang.Integer"/>
+	<field name="factura_periodo_facturacion_inicial" class="java.sql.Date"/>
+	<field name="factura_periodo_facturacion_final" class="java.sql.Date"/>
+	<field name="factura_fecha_de_pago" class="java.sql.Date"/>
+	<field name="factura_fecha_suspencion" class="java.sql.Date"/>
+	<field name="factura_codigo_inmueble" class="java.lang.Integer"/>
+	<field name="factura_acueducto" class="java.lang.Integer"/>
+	<field name="factura_alcantarillado" class="java.lang.Integer"/>
+	<field name="factura_reconexion" class="java.lang.Integer"/>
+	<field name="factura_iva_acueducto" class="java.lang.Float"/>
+	<field name="factura_Iva_alcantarillado" class="java.lang.Float"/>
+	<field name="factura_deuda_factura" class="java.lang.Float"/>
+	<field name="factura_total_a_pagar" class="java.lang.Float"/>
+	<field name="factura_codigo_financiacion" class="java.lang.Integer"/>
+	<field name="factura_codigo_financiacion_deuda" class="java.lang.Integer"/>
+	<field name="inmueble_codigo_inmueble" class="java.lang.Integer"/>
+	<field name="inmueble_Direccion" class="java.lang.String"/>
+	<field name="inmueble_telefono" class="java.lang.Long"/>
+	<field name="inmueble_alcantarillado" class="java.lang.Integer"/>
+	<field name="inmueble_Acueduto" class="java.lang.Integer"/>
+	<field name="inmueble_documento" class="java.lang.String"/>
+	<field name="cliente_documento" class="java.lang.String"/>
+	<field name="cliente_tipo_documento" class="java.lang.String"/>
+	<field name="cliente_genero" class="java.lang.String"/>
+	<field name="cliente_telefono" class="java.lang.Long"/>
+	<field name="cliente_Nombre" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band/>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="396">
+			<frame>
+				<reportElement uuid="0582d175-d1c6-4195-8070-8219fb60477b" mode="Opaque" x="0" y="-1" width="555" height="48" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="85d89f89-fedf-4ff2-bbd4-15dc493bcd23" x="76" y="0" width="157" height="29" forecolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Arial Narrow" size="25" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Agua-Florida ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="cd2dd2cf-5979-4f85-b3c8-136e5dbd15b3" x="218" y="16" width="78" height="10" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial Narrow" size="7" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Nit. 809007950-9]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="cd2dd2cf-5979-4f85-b3c8-136e5dbd15b3" x="126" y="37" width="122" height="10" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial Narrow" size="7" isBold="true"/>
+					</textElement>
+					<text><![CDATA[BARRIO LA FLORIDA ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="cd2dd2cf-5979-4f85-b3c8-136e5dbd15b3" x="48" y="29" width="319" height="13" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial Narrow" size="7" isBold="true" isItalic="false" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[JUNTA ADMINISTRADORA DEL SERVICIO DE ACUEDUCTO Y ALCANTARILLADO]]></text>
+				</staticText>
+				<image>
+					<reportElement uuid="25f3bfc7-fa67-43ab-bb14-331c2fe376d2" x="8" y="2" width="43" height="40"/>
+					<imageExpression><![CDATA["C:\\Agua florida\\src\\imagenes\\LogoFactura.png"]]></imageExpression>
+				</image>
+			</frame>
+			<staticText>
+				<reportElement uuid="d43802d2-3e34-4819-a7ca-a1a837e1dbc9" x="367" y="0" width="84" height="12" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Codigo Factura]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="1b58fec6-60cb-4fc0-970f-0f97c3ffe24e" x="455" y="0" width="100" height="12" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_codigo_factura}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7845ea29-a45b-4ece-a1f8-5bcb52fae90f" x="295" y="47" width="87" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="12"/>
+				</textElement>
+				<text><![CDATA[Periodo Facturado]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="10ca6b6e-633a-4f6c-83df-b42009575275" x="371" y="67" width="33" height="15" forecolor="#006699"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_periodo_facturacion_inicial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7845ea29-a45b-4ece-a1f8-5bcb52fae90f" x="295" y="67" width="31" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Inicio :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b325c928-6163-4f63-ac37-268acc1f8193" x="418" y="67" width="43" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Fin :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6713e9ca-28f0-45bc-b506-4d1a40e553de" x="509" y="67" width="43" height="15" forecolor="#006699"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_periodo_facturacion_final}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="75914c63-b2b4-434f-900b-f690f649400a" x="295" y="82" width="77" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Fecha de Pago :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="3c9ff947-4c25-4fdd-a2b1-9e0a37ba8246" x="371" y="83" width="43" height="15" forecolor="#006699"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_fecha_de_pago}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="fc336c18-1f79-481a-b9d8-2b71b3485f83" x="418" y="83" width="91" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Fecha Suspencion :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="5b52f5fb-46c2-4d98-b4c8-391db7abf7fa" x="509" y="83" width="43" height="15" forecolor="#006699"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_fecha_suspencion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="19b4b735-1be8-433a-9f8d-3421b6bd8031" x="367" y="16" width="85" height="12" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Codigo Inmueble]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="13340042-8b7e-46ee-972b-53bbfdd3640d" x="455" y="16" width="100" height="12" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_codigo_inmueble}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="51f31889-77ca-4a0b-963b-679d9dbec5b1" x="367" y="32" width="74" height="12" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Total a Pagar]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="a6a113a8-3b59-40c4-bfda-4bcf76f30080" x="455" y="33" width="100" height="12" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_total_a_pagar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="2" y="67" width="43" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Nombre :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="4caf0111-4e79-48fa-a385-00da82e31ee0" x="48" y="67" width="233" height="15" forecolor="#006699"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_Nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="7" y="47" width="120" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="12"/>
+				</textElement>
+				<text><![CDATA[Datos del Suscriptor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2e2ba530-b916-42b0-9a67-d31ee6943674" x="2" y="83" width="43" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Direccion :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="59015b31-3868-4e46-a2f5-7dce67bf54e0" x="48" y="83" width="233" height="15" forecolor="#006699"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{inmueble_Direccion}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="5f790a47-93ed-4ba2-9ceb-f03ed3c21d70" x="6" y="131" width="121" height="20"/>
+				<subreportParameter name="codalcantarillado">
+					<subreportParameterExpression><![CDATA[$F{inmueble_alcantarillado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Codinmueble">
+					<subreportParameterExpression><![CDATA[$F{inmueble_codigo_inmueble}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="codacueducto">
+					<subreportParameterExpression><![CDATA[$F{inmueble_Acueduto}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "AcueductoyAlcantarillado.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement uuid="ab8a055f-e196-48a4-9bca-86fc810eff43" x="0" y="100" width="555" height="1" forecolor="#006699"/>
+			</line>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="7" y="102" width="120" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="12"/>
+				</textElement>
+				<text><![CDATA[Descripcion del Cobro]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="0" y="65" width="281" height="1" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="295" y="65" width="259" height="1" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="4" y="116" width="232" height="1" forecolor="#006699"/>
+			</line>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="5" y="117" width="100" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Concepto ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="148" y="117" width="75" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="93201f67-82e3-4af5-bb0a-10d21f97aba7" x="149" y="152" width="78" height="12"/>
+				<subreportParameter name="codigo">
+					<subreportParameterExpression><![CDATA[$F{inmueble_codigo_inmueble}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Deuda.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="3a774dd1-d675-455d-9b96-fcd2fdcf1940" x="149" y="163" width="78" height="12"/>
+				<subreportParameter name="Codigo">
+					<subreportParameterExpression><![CDATA[$F{inmueble_codigo_inmueble}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FinanciacionInstalacion.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="953fca85-5010-49d1-a288-363424872f02" x="149" y="174" width="78" height="12"/>
+				<subreportParameter name="Codigo">
+					<subreportParameterExpression><![CDATA[$F{inmueble_codigo_inmueble}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} +  "FinanciacionDeuda.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="6" y="153" width="60" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Deuda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="6" y="164" width="123" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Financiacion Instalación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="6" y="175" width="123" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Financiacion Deuda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="6" y="186" width="123" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Otros Conceptos]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="ca2855bb-4927-42c6-8434-c5bf43731484" x="149" y="196" width="78" height="12"/>
+				<subreportParameter name="codigo">
+					<subreportParameterExpression><![CDATA[$F{inmueble_codigo_inmueble}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} +  "Reconexion.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="521c5360-17d0-4f61-b2d0-d2263879e5e9" x="94" y="211" width="30" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d88f4afa-f36d-41d8-bb48-66a89095ac0e" x="149" y="211" width="78" height="13" forecolor="#006699"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_total_a_pagar}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="4" y="210" width="231" height="1" forecolor="#006699"/>
+			</line>
+			<subreport>
+				<reportElement uuid="46085404-67d0-491f-a1d9-c141d5ad61cb" x="244" y="146" width="305" height="15"/>
+				<subreportParameter name="codigo">
+					<subreportParameterExpression><![CDATA[$F{inmueble_codigo_inmueble}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EstadoInstalacion.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="244" y="102" width="103" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="12"/>
+				</textElement>
+				<text><![CDATA[Estado de Creditos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="243" y="117" width="50" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="305" y="117" width="50" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[N° Cuotas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="368" y="117" width="50" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[N° Pagas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="501" y="116" width="50" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[ Iva]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="244" y="132" width="62" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Instalación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="246" y="166" width="100" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Deudas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="432" y="117" width="50" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Valor Cuota]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="5a57e3c8-5de3-498b-9bd3-c3102380f08f" x="244" y="182" width="305" height="15"/>
+				<subreportParameter name="codigo">
+					<subreportParameterExpression><![CDATA[$F{inmueble_codigo_inmueble}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EstadoDeuda.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="241" y="131" width="310" height="1" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="241" y="145" width="100" height="1" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="241" y="179" width="100" height="1" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="235" y="116" width="1" height="109" forecolor="#006699"/>
+			</line>
+			<textField>
+				<reportElement uuid="1b58fec6-60cb-4fc0-970f-0f97c3ffe24e" x="8" y="373" width="100" height="12" forecolor="#006699"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_codigo_factura}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement uuid="48997dbb-6e5d-4b1f-8dc3-0e161401e239" x="8" y="341" width="161" height="32"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39 (Extended)" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{factura_codigo_factura}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="4" y="224" width="231" height="1" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="4" y="116" width="1" height="109" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="6" y="131" width="229" height="1" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="240" y="116" width="1" height="89" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="240" y="116" width="311" height="1" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="550" y="116" width="1" height="89" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="240" y="205" width="311" height="1" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="554" y="0" width="1" height="318" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="0" y="-1" width="1" height="320" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="1" y="318" width="555" height="1" forecolor="#006699"/>
+			</line>
+			<rectangle>
+				<reportElement uuid="fa73c0b7-7af4-43ce-92e4-8070ca72921e" x="240" y="210" width="311" height="82" forecolor="#006699"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="8" y="327" width="70" height="12" forecolor="#006699"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Codigo Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6ecf4e21-c42d-43fd-a143-7df12f5a165b" x="244" y="209" width="61" height="14" forecolor="#006699"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="12"/>
+				</textElement>
+				<text><![CDATA[Nota Legal : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="6" y="197" width="123" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Reconexion]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="8f7fe89e-9791-4f64-9132-590bfffa2d4f" x="4" y="240" width="232" height="74" forecolor="#006699"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="7" y="225" width="103" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="12"/>
+				</textElement>
+				<text><![CDATA[Otros Conceptos]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="e915836f-9243-4ce3-abf8-c47a8a4cddbc" x="7" y="241" width="220" height="62"/>
+				<subreportParameter name="inmueble">
+					<subreportParameterExpression><![CDATA[$F{factura_codigo_inmueble}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OtrosConceptos.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="89f1d881-7459-4dd2-9850-07a93889176a" x="149" y="185" width="78" height="12"/>
+				<subreportParameter name="inmueble">
+					<subreportParameterExpression><![CDATA[$F{factura_codigo_inmueble}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "otrosconceptosvalor.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement uuid="2a54c70b-a2f3-47da-95fb-d225a1eead8f" x="243" y="223" width="308" height="69"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="de513b99-5a27-44ac-9950-509f6d0b293d" x="149" y="131" width="78" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_acueducto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="45b6fea4-813d-4b9e-bb81-cdec552e9f18" x="149" y="141" width="78" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_alcantarillado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6ecf4e21-c42d-43fd-a143-7df12f5a165b" x="386" y="295" width="110" height="14" forecolor="#006699"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Estado del Servicio :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6ecf4e21-c42d-43fd-a143-7df12f5a165b" x="239" y="295" width="95" height="14" forecolor="#006699"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Facturas en Mora :]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="4df517c0-9e91-4839-b156-9e6f005d483d" x="334" y="296" width="52" height="12"/>
+				<subreportParameter name="codigo">
+					<subreportParameterExpression><![CDATA[$F{factura_codigo_inmueble}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "NumeroDeuda.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement uuid="0e659c22-67e6-435f-be55-7b6bcc7f2487" x="496" y="296" width="59" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1b58fec6-60cb-4fc0-970f-0f97c3ffe24e" x="198" y="373" width="100" height="12" forecolor="#006699"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_codigo_financiacion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="197" y="327" width="150" height="12" forecolor="#006699"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Codigo Financiación]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement uuid="48997dbb-6e5d-4b1f-8dc3-0e161401e239" x="197" y="341" width="161" height="32"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39 (Extended)" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{factura_codigo_financiacion}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<textField>
+				<reportElement uuid="1b58fec6-60cb-4fc0-970f-0f97c3ffe24e" x="390" y="373" width="100" height="12" forecolor="#006699"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_codigo_financiacion_deuda}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="390" y="328" width="159" height="12" forecolor="#006699"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="10"/>
+				</textElement>
+				<text><![CDATA[Codigo Financiación Deuda]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement uuid="48997dbb-6e5d-4b1f-8dc3-0e161401e239" x="390" y="341" width="161" height="32"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39 (Extended)" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{factura_codigo_financiacion_deuda}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="0" y="322" width="555" height="1" forecolor="#006699"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="0" y="389" width="555" height="1" forecolor="#006699"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band/>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

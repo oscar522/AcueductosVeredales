@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FinanciacionInstalacion" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e4d05e11-9b8f-4aff-9cf1-0751e56dc6a4">
+	<property name="ireport.zoom" value="3.4522712143931042"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Codigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT ((f.valor_total / f.numero_cuotas)*(s.valor / 100)+(f.valor_total / f.numero_cuotas) ) as valorcuota , f.numero_cuotas as numero_cuotas,
+ f.cuotas_pagas as cuotas_pagas,
+ s.valor as iva,
+ f.codigo_financiacion as codigofi
+  FROM inmueble i, financiacion f, servicio s WHERE f.inmueble = i.codigo_inmueble and s.idservicio = f.iva and f.tipo = 'Instalacion' and  f.estado = 'AC' and f.inmueble =$P{Codigo}]]>
+	</queryString>
+	<field name="valorcuota" class="java.lang.Double"/>
+	<field name="numero_cuotas" class="java.lang.Integer"/>
+	<field name="cuotas_pagas" class="java.lang.Integer"/>
+	<field name="iva" class="java.lang.Integer"/>
+	<field name="codigofi" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField>
+				<reportElement uuid="2095a213-04ae-49bd-9121-e015709af1e2" x="0" y="0" width="100" height="12"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valorcuota}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

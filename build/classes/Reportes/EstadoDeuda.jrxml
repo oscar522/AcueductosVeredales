@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FinanciacionDeudas" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="74ea00ea-7bcd-4e78-be89-45ed77e853c0">
+	<property name="ireport.zoom" value="1.948717100000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT ((f.valor_total / f.numero_cuotas)*(s.valor / 100)+(f.valor_total / f.numero_cuotas) ) as valorcuota , f.numero_cuotas as numero_cuotas, f.cuotas_pagas as cuotas_pagas, s.valor as iva, f.codigo_financiacion as codigofi FROM inmueble i, financiacion f, servicio s WHERE f.inmueble = i.codigo_inmueble and s.idservicio = f.iva and f.tipo = 'Deuda' and  f.estado = 'AC' and f.inmueble =$P{codigo}]]>
+	</queryString>
+	<field name="valorcuota" class="java.lang.Double"/>
+	<field name="numero_cuotas" class="java.lang.Integer"/>
+	<field name="cuotas_pagas" class="java.lang.Integer"/>
+	<field name="iva" class="java.lang.Integer"/>
+	<field name="codigofi" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement uuid="83706270-2a0c-48cf-b2e3-e169d9b7f53f" x="191" y="0" width="60" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valorcuota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9ac1edb6-33d6-45eb-b376-bef4c61a525c" x="62" y="0" width="60" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero_cuotas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7ed4b67a-9172-4515-9634-70cb0b93d2e3" x="124" y="0" width="60" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cuotas_pagas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7e0b72e2-cd88-4c1b-988b-3c1b3a54441d" x="262" y="0" width="60" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{iva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2eb251e8-0073-4bfc-8ece-9adea7643829" x="2" y="0" width="60" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigofi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

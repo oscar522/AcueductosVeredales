@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CambiosUsuario" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4c656ef5-f513-4a6f-8bc2-96abca7612d8">
+	<property name="ireport.zoom" value="1.9487171000000019"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="COD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     cliente.`documento` AS cliente_documento,
+     cliente.`tipo_documento` AS cliente_tipo_documento,
+     cliente.`genero` AS cliente_genero,
+     cliente.`telefono` AS cliente_telefono,
+     cliente.`Nombre` AS cliente_Nombre,
+     cambiousuario.`fecha` AS cambiousuario_fecha
+FROM
+     `cliente` cliente ,`inmueble` inmueble,`cambiousuario` cambiousuario
+WHERE cliente.`documento` = cambiousuario.`documento` AND cambiousuario.`inmueble` = $P{COD} group by cliente.`documento`]]>
+	</queryString>
+	<field name="cliente_documento" class="java.lang.String"/>
+	<field name="cliente_tipo_documento" class="java.lang.String"/>
+	<field name="cliente_genero" class="java.lang.String"/>
+	<field name="cliente_telefono" class="java.lang.Long"/>
+	<field name="cliente_Nombre" class="java.lang.String"/>
+	<field name="cambiousuario_fecha" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7d223fa0-8b91-4384-9735-369ba233593e" mode="Opaque" x="69" y="20" width="339" height="15" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c4493144-d9cd-4758-95ec-5ba4c9b3936a" mode="Opaque" x="408" y="20" width="68" height="15" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6479963-2aa1-4e32-9f51-167b73b02735" mode="Opaque" x="0" y="20" width="69" height="15" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="0" y="0" width="120" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="12"/>
+				</textElement>
+				<text><![CDATA[Cambios de Usuario :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c4493144-d9cd-4758-95ec-5ba4c9b3936a" mode="Opaque" x="476" y="20" width="79" height="15" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="476" y="-1" width="1" height="17" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="0" y="0" width="1" height="15" forecolor="#006699"/>
+			</line>
+			<textField>
+				<reportElement uuid="fdd42d68-7f30-4805-9fbb-796aff0c86ff" x="2" y="1" width="68" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_documento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a3795055-f280-455c-b725-951aa661993f" x="71" y="1" width="336" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b9f65e92-6510-4884-adee-3b0bcebcfeec" x="410" y="1" width="66" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="332ff92f-5ef9-44b3-98dd-eace30f5dc5f" x="477" y="1" width="77" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cambiousuario_fecha}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="407" y="0" width="1" height="15" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="554" y="0" width="1" height="15" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="69" y="0" width="1" height="15" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="0" y="15" width="554" height="1" forecolor="#006699"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OtrosConeceptos" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="14873a1b-b963-4508-a595-da88e9d98316">
+	<property name="ireport.zoom" value="2.357947691000003"/>
+	<property name="ireport.x" value="141"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="cod" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     otrosconceptos.`id` AS otrosconceptos_id,
+     otrosconceptos.`cocepto` AS otrosconceptos_cocepto,
+     otrosconceptos.`valor` AS otrosconceptos_valor,
+     otrosconceptos.`fecha` AS otrosconceptos_fecha,
+     otrosconceptos.`estado` AS otrosconceptos_estado,
+     factura.`codigo_factura` AS factura_codigo_factura
+
+FROM
+     `otrosconceptos` otrosconceptos,
+     `factura` factura
+WHERE
+     factura.otros_conceptos = otrosconceptos.id
+and factura.codigo_inmueble = $P{cod}]]>
+	</queryString>
+	<field name="otrosconceptos_id" class="java.lang.Integer"/>
+	<field name="otrosconceptos_cocepto" class="java.lang.String"/>
+	<field name="otrosconceptos_valor" class="java.lang.Integer"/>
+	<field name="otrosconceptos_fecha" class="java.sql.Timestamp"/>
+	<field name="otrosconceptos_estado" class="java.lang.String"/>
+	<field name="factura_codigo_factura" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="c6479963-2aa1-4e32-9f51-167b73b02735" mode="Opaque" x="200" y="20" width="86" height="15" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="0" y="0" width="171" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="12"/>
+				</textElement>
+				<text><![CDATA[Otros Conceptos :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6479963-2aa1-4e32-9f51-167b73b02735" mode="Opaque" x="100" y="20" width="100" height="15" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Cod. Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6479963-2aa1-4e32-9f51-167b73b02735" mode="Opaque" x="0" y="20" width="100" height="15" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6479963-2aa1-4e32-9f51-167b73b02735" mode="Opaque" x="286" y="20" width="86" height="15" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Fecha ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6479963-2aa1-4e32-9f51-167b73b02735" mode="Opaque" x="372" y="20" width="83" height="15" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="0" y="13" width="454" height="1" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="0" y="-1" width="1" height="15" forecolor="#006699"/>
+			</line>
+			<textField>
+				<reportElement uuid="3d63fc8d-3e2f-470d-8cf4-e4e4dc5fe51a" x="1" y="1" width="99" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{otrosconceptos_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f6b01eed-1c9e-4399-94af-2e09d35fcb1a" x="101" y="1" width="98" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_codigo_factura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e04f4e5f-1f9c-41b4-a816-9486f7239f7b" x="107" y="16" width="347" height="12"/>
+				<textElement>
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{otrosconceptos_cocepto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="57a4c827-693d-4278-b5ae-d054f438cf2e" x="201" y="1" width="84" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{otrosconceptos_valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dd4bfb07-3178-4251-8e91-85925c138a4a" x="286" y="1" width="85" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{otrosconceptos_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7cb18ea5-d020-4302-be85-4df520fcf22c" x="372" y="1" width="82" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{otrosconceptos_estado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c6479963-2aa1-4e32-9f51-167b73b02735" mode="Opaque" x="0" y="14" width="100" height="15" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="285" y="-2" width="1" height="15" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="200" y="-2" width="1" height="15" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="100" y="-2" width="1" height="15" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="371" y="-2" width="1" height="15" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="454" y="-2" width="1" height="32" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="0" y="29" width="454" height="1" forecolor="#006699"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Suspenciones" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="79acbc1b-1137-4525-8299-f551ea95f60a">
+	<property name="ireport.zoom" value="3.138428376721004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="COD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     reconexion.`codigo_reconeccion` AS reconexion_codigo_reconeccion,
+     reconexion.`codigo_factura` AS reconexion_codigo_factura,
+     reconexion.`fecha_reconeccion` AS reconexion_fecha_reconeccion
+FROM
+     `reconexion` reconexion INNER JOIN `factura` factura ON reconexion.`codigo_factura` = factura.`codigo_factura`
+     INNER JOIN `inmueble` inmueble ON factura.`codigo_inmueble` = inmueble.`codigo_inmueble`
+WHERE inmueble.`codigo_inmueble` = $P{COD}]]>
+	</queryString>
+	<field name="reconexion_codigo_reconeccion" class="java.lang.Integer"/>
+	<field name="reconexion_codigo_factura" class="java.lang.Integer"/>
+	<field name="reconexion_fecha_reconeccion" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="eb497532-a61a-4cca-a090-7dbdae68f6cf" x="0" y="0" width="135" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="12"/>
+				</textElement>
+				<text><![CDATA[Suspenciones del Servicio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c4493144-d9cd-4758-95ec-5ba4c9b3936a" mode="Opaque" x="69" y="20" width="94" height="15" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Codigo de Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6479963-2aa1-4e32-9f51-167b73b02735" mode="Opaque" x="0" y="20" width="69" height="15" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c4493144-d9cd-4758-95ec-5ba4c9b3936a" mode="Opaque" x="163" y="20" width="94" height="15" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="11"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="256" y="0" width="1" height="12" forecolor="#006699"/>
+			</line>
+			<textField>
+				<reportElement uuid="cb3e9e8c-8301-4ab5-9225-8ae8953485d4" x="1" y="0" width="69" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reconexion_codigo_reconeccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8fc4f9b6-75a5-4ae8-b45c-f8198cd82df1" x="70" y="0" width="94" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reconexion_codigo_factura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3d9de9a3-6ba1-4147-8551-dd06308a45d6" x="164" y="0" width="93" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reconexion_fecha_reconeccion}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="163" y="-1" width="1" height="12" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="69" y="0" width="1" height="12" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="0" y="0" width="1" height="12" forecolor="#006699"/>
+			</line>
+			<line>
+				<reportElement uuid="6bc1b1bd-e6b9-4af9-80bf-995af876ced9" x="0" y="11" width="257" height="1" forecolor="#006699"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>
