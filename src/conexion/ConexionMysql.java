@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package conexion;
+package conexion; 
 import java.sql.*;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
