@@ -29,7 +29,7 @@ public class Servicio_cliente {
         
          String q ="";
         try {
-         q = "INSERT INTO cliente (documento, tipo_documento, genero, telefono, nombre) VALUES (" +cliente.getDocumento()+",'" +cliente.getTipo_documento()+"','" +cliente.getGenero()+"'," +cliente.getTelefono()+",'" +cliente.getNombre()+"')";
+         q = "INSERT INTO cliente (documento, tipo_documento, genero, telefono, nombre, estado) VALUES (" +cliente.getDocumento()+",'" +cliente.getTipo_documento()+"','" +cliente.getGenero()+"'," +cliente.getTelefono()+",'" +cliente.getNombre()+"','AC')";
         
               PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement(q);
               //System.out.println(pstm);
@@ -54,7 +54,8 @@ public Object [][] ConsultarCliente(String DOCUMENTO){
             " documento,tipo_documento,genero,telefono,Nombre" +
             " FROM cliente " +
             " WHERE documento = "+DOCUMENTO+ 
-            " ORDER BY documento ");
+            " AND estado = 'AC' "
+            + "ORDER BY documento ");
             
              ResultSet res = null;
              res = (ResultSet) pstm.executeQuery();
@@ -72,7 +73,6 @@ public Object [][] ConsultarCliente(String DOCUMENTO){
                 datos[0][2] = telefono_fij;
                 datos[0][3] = nombre;
                 
-
             }
 
             res.close();
@@ -105,16 +105,35 @@ public Object [][] ConsultarCliente(String DOCUMENTO){
              
         public void BorrarCliente(String documento)  {
 
-        try {
+         int registros = 0;
+        //obtenemos la cantidad de registros existentes en la tabla
+        try{
 
-           PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement("delete from cliente  WHERE documento  ='" + documento + "'");
-            pstm.execute();
-            pstm.close();
-            JOptionPane.showMessageDialog(new JDialog(), "EL CLIENTE SE A ELIMINADO");
+            ResultSet res = null;
+            PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement( "SELECT Count(*) as total  FROM  inmueble as i WHERE i.documento='" + documento + "' and i.estado= 'AC'");
             
-        } catch(SQLException e){
+            res = (ResultSet) pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        }catch(SQLException e){
             System.out.println(e);
+        }
+        
+        if(registros > 0){
+            JOptionPane.showMessageDialog(new JDialog(), "NO ES POSIBLE ELIMINAR EL CLIENTE DEBIDO A QUE TIENE INMUEBLES A SU NOMBRE !!!");
+        }else{       
+        
+                try {
 
+                    PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement(" UPDATE cliente SET estado = 'IN' WHERE documento  ='" + documento + "'");
+                    pstm.execute();
+                    pstm.close();
+                    JOptionPane.showMessageDialog(new JDialog(), "EL CLIENTE SE A ELIMINADO");
+            
+                } catch(SQLException e){
+                System.out.println(e);
+            }  
         }
      }
 
