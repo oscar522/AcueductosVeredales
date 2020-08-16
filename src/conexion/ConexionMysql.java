@@ -34,8 +34,6 @@ public class ConexionMysql {
         String usuario = glo.getUser();
         String contrasena = glo.getPass();
         try{
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_acueductos", "root" , "");
             if (usuario != "root")
             {
                 usuario = "root";
