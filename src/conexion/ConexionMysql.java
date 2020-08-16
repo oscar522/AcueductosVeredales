@@ -17,7 +17,7 @@ public class ConexionMysql {
         String contrasena = glo.getPass();
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/agua_florida", "root" , "");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_acueductos", "root" , "");
             if (conn!=null){
                 System.out.println("Conexión a base de datos listo mysql");
             }            System.out.print(usuario + contrasena);

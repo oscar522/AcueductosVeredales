@@ -505,7 +505,7 @@ cbAcueducto.getSelectedItem().toString().equals("Elije un Servicio") || document
 private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 datos1 = s.ConsultarInmuebleFactura();   
 int tamaño = datos1.length;
-JOptionPane.showMessageDialog(new JDialog(), "tamaño"+tamaño);
+//JOptionPane.showMessageDialog(new JDialog(), "tamaño"+tamaño);
         int numero=0;
         datos1=s.NumeroGestion(numero);
           labelCodigo.setText(String.valueOf(datos1[0][0]));

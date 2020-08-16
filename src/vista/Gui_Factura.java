@@ -295,7 +295,7 @@ public class Gui_Factura extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(new JDialog(), "La nota asiciada a la factura debe tener menos de 500 letras N° LETRAS: "+arrayChar.length);
         }else if(txtnota.getText().equals("")){
 
-            JOptionPane.showMessageDialog(new JDialog(), "La nota no puede estar basia ");
+            JOptionPane.showMessageDialog(new JDialog(), "La nota no puede estar vacia ");
 
         }
         else if (Resultado.equals("")){

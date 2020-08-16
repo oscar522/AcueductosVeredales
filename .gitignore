@@ -6,7 +6,7 @@
 # Compiled class file
 *.class
 
-nbproject/
+
 build/
 dist/
 test/
