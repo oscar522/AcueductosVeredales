@@ -33,7 +33,6 @@ public class Servicios_login {
     String usuario = "";
     String contrasena = "";
     String nombre_usu = "";
-    Nuevo_index index = new Nuevo_index();
 
         //obtenemos la cantidad de registros existentes en la tabla
     try{
@@ -52,12 +51,14 @@ public class Servicios_login {
             res.close();
             if ((usuario != "") && (contrasena != "")) {
                 JOptionPane.showMessageDialog(null,"Bienvenido "+nombre_usu);
+                Nuevo_index index = new Nuevo_index();
                 index.show();
             } else {
                 JOptionPane.showMessageDialog(null,"In - Correcto : Usuario o contraseña ");
             }
         }else {
             JOptionPane.showMessageDialog(null,"Bienvenido "+nombre_usu);
+            Nuevo_index index = new Nuevo_index();
             index.show();
         }
     }catch(SQLException e){
