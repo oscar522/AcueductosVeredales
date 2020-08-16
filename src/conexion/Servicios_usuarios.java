@@ -50,42 +50,7 @@ public class Servicios_usuarios {
                         System.out.println(e);
                         JOptionPane.showMessageDialog(new JDialog(), "ERROR AL REGISTAR EL INGRESO USUARIO DB");
                         }
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                     
-                   //////////////////////// PERMISOS PARA USUARIOS EN DB ////////////////7  
-                     String GRAN_DB ="";
-                     try {
-                        GRAN_DB = "GRANT ALL PRIVILEGES ON * . * TO '"+usuarios.getUsuario()+"'@'localhost'";
-        
-                        PreparedStatement GRAN_DB_TRANS = (PreparedStatement) conm.getConnection().prepareStatement(GRAN_DB);
-                        System.out.println(GRAN_DB);
-                        GRAN_DB_TRANS.execute();
-                        GRAN_DB_TRANS.close();
-                        JOptionPane.showMessageDialog(new JDialog(), "PERMISOS PARA USUARIOS EN DB");
-            
-                        } catch (SQLException e) {
-                        System.out.println(e);
-                        JOptionPane.showMessageDialog(new JDialog(), "ERROR AL REGISTAR PERMISOS PARA USUARIOS EN DB");
-                        }
-                      /////////////////////////////////////////////////////////////////////////////////////
-                     
-                      //////////////////////// APLICACION DE PERMISOS PARA NUEVO USUARIO ////////////////7  
-                     String FLUSH_DB ="";
-                     try {
-                        FLUSH_DB = "FLUSH PRIVILEGE";
-        
-                        PreparedStatement FLUSH_DB_TRANS = (PreparedStatement) conm.getConnection().prepareStatement(FLUSH_DB);
-                        System.out.println(FLUSH_DB);
-                        FLUSH_DB_TRANS.execute();
-                        FLUSH_DB_TRANS.close();
-                        JOptionPane.showMessageDialog(new JDialog(), "PERMISOS APLICADOS EN LA DB");
-            
-                        } catch (SQLException e) {
-                        System.out.println(e);
-                        JOptionPane.showMessageDialog(new JDialog(), "ERROR PERMISOS APLICADOS EN LA DB");
-                        }
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////  
-                     
+            ////     
             JOptionPane.showMessageDialog(new JDialog(), "INGRESO DE CLIENTE CORRECTO EN LA BASE DE DATOS");
 
         } catch (SQLException e) {
@@ -142,31 +107,18 @@ public Object [][] ConsultarUsuario(String DOCUMENTO){
 
   public void ModificarCliente(Usuarios usuarios){
           //////////////////////// PERMISOS PARA USUARIOS EN DB ////////////////7  
-                     String GRAN_DB ="";
                      try {
-                        GRAN_DB = "GRANT ALL PRIVILEGES ON * . * TO '"+usuarios.getUsuario()+"'@'localhost' IDENTIFIED BY '"+usuarios.getContrasena()+"' ";
-        
-                        PreparedStatement GRAN_DB_TRANS = (PreparedStatement) conm.getConnection().prepareStatement(GRAN_DB);
-                        System.out.println(GRAN_DB);
-                        GRAN_DB_TRANS.execute();
-                        GRAN_DB_TRANS.close();
-                        JOptionPane.showMessageDialog(new JDialog(), "PERMISOS PARA USUARIOS EN DB");
                         
-                            try {
                            //String  q = "INSERT INTO usuarios (nombre, apellidos, usuario, contrasena, idetificacion) VALUES ('" +usuarios.getNombre()+"','" +usuarios.getApellidos()+"','" +usuarios.getUsuario()+"', MD5('" +usuarios.getContrasena()+"'),'"+usuarios.getIdentifica()+"' )";
                               String q = "UPDATE usuarios SET contrasena =  MD5('" +usuarios.getContrasena()+"') WHERE idetificacion  ="   +usuarios.getIdentifica()+"";
                             PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement(q);
                             System.out.println(q);
                             pstm.execute();
                             pstm.close();
-                            } catch (SQLException e) {
-                            System.out.println(e);
-                            JOptionPane.showMessageDialog(new JDialog(), "ERROR ");
-                            }
                             
                         } catch (SQLException e) {
                         System.out.println(e);
-                        JOptionPane.showMessageDialog(new JDialog(), "ERROR AL REGISTAR PERMISOS PARA USUARIOS EN DB");
+                        JOptionPane.showMessageDialog(new JDialog(), "ERROR AL REGISTAR MODIFICAR");
                         }
                       /////////////////////////////////////////////////////////////////////////////////////
   }
@@ -174,28 +126,13 @@ public Object [][] ConsultarUsuario(String DOCUMENTO){
         public void BorrarUsuario(Usuarios usuarios)  {
 
        //////////////////////// PERMISOS PARA USUARIOS EN DB ////////////////7  
-                     String GRAN_DB ="";
                      try {
-                        GRAN_DB = "drop user '"+usuarios.getUsuario()+"'@'localhost'";
-        
-                        PreparedStatement GRAN_DB_TRANS = (PreparedStatement) conm.getConnection().prepareStatement(GRAN_DB);
-                        System.out.println(GRAN_DB);
-                        GRAN_DB_TRANS.execute();
-                        GRAN_DB_TRANS.close();
-                        JOptionPane.showMessageDialog(new JDialog(), "USUARIO ELIMINADO");
-                        
-                            try {
                            //String  q = "INSERT INTO usuarios (nombre, apellidos, usuario, contrasena, idetificacion) VALUES ('" +usuarios.getNombre()+"','" +usuarios.getApellidos()+"','" +usuarios.getUsuario()+"', MD5('" +usuarios.getContrasena()+"'),'"+usuarios.getIdentifica()+"' )";
                               String q = "UPDATE usuarios SET estado =  'I'  WHERE idetificacion  ="+usuarios.getIdentifica()+"";
                             PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement(q);
                             System.out.println(q);
                             pstm.execute();
                             pstm.close();
-                            } catch (SQLException e) {
-                            System.out.println(e);
-                            JOptionPane.showMessageDialog(new JDialog(), "ERROR ");
-                            }
-                            
                         } catch (SQLException e) {
                         System.out.println(e);
                         JOptionPane.showMessageDialog(new JDialog(), "ERROR AL REGISTAR PERMISOS PARA USUARIOS EN DB");
