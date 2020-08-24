@@ -276,7 +276,7 @@ public class Gui_Factura extends javax.swing.JInternalFrame {
 
         String cadena =txtnota.getText();
         char[] arrayChar = cadena.toCharArray();
-        String VerPeriodo = s.VerificarPeriodo(Fechainci1, Fechafin1, Fechacorte1, Fechapago1);
+        String VerPeriodo = s.ConsultarPeriodo(Fechainci1, Fechafin1, Fechapago1,Fechacorte1 );
 
         if (VerPeriodo.equals("1")){
 

@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/balle/Desktop/Proyectos/Acueductos/Proyecto/src/vista/Gui_login.java</file>
-            <file>file:/C:/Users/balle/Desktop/Proyectos/Acueductos/Proyecto/src/conexion/ConexionMysql.java</file>
-            <file>file:/C:/Users/balle/Desktop/Proyectos/Acueductos/Proyecto/src/vista/Nuevo_index.java</file>
-            <file>file:/C:/Users/balle/Desktop/Proyectos/Acueductos/Proyecto/src/conexion/Servicio_cliente.java</file>
-            <file>file:/C:/Users/balle/Desktop/Proyectos/Acueductos/Proyecto/src/conexion/Servicios_login.java</file>
+            <file>file:/C:/Users/balle/Desktop/Proyectos/Acueductos/Proyecto/src/conexion/Servicio_cierre.java</file>
+            <file>file:/C:/Users/balle/Desktop/Proyectos/Acueductos/Proyecto/src/vista/Gui_cierre.java</file>
+            <file>file:/C:/Users/balle/Desktop/Proyectos/Acueductos/Proyecto/src/conexion/Servicio_factura.java</file>
         </group>
     </open-files>
 </project-private>
