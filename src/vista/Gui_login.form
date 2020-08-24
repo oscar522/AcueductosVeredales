@@ -212,7 +212,7 @@
               <Font name="Arial Narrow" size="9" style="3"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Todos los Derechos Reservados - Soluciones Inteligentes TIC - 2020"/>
+            <Property name="text" type="java.lang.String" value="Todos Los Derechos Reservados &#xa9; - Soluciones Inteligentes TIC- - 2020"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
         </Component>

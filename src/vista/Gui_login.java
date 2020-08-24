@@ -149,7 +149,7 @@ Servicios_login s;
 
         jLabel6.setFont(new java.awt.Font("Arial Narrow", 3, 9)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Todos los Derechos Reservados - Soluciones Inteligentes TIC - 2020");
+        jLabel6.setText("Todos Los Derechos Reservados © - Soluciones Inteligentes TIC- - 2020");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
