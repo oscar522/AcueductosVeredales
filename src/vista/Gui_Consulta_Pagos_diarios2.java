@@ -54,6 +54,8 @@ public class Gui_Consulta_Pagos_diarios2 extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
         jLabel18.setFont(new java.awt.Font("Arial Narrow", 3, 21)); // NOI18N
