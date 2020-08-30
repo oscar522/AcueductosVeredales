@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Paola/Desktop/acueducto/Proyecto/AcueductosVeredales/src/vista/Gui_Factura.java</file>
-            <file>file:/C:/Users/Paola/Desktop/acueducto/Proyecto/AcueductosVeredales/src/conexion/ConexionMysql.java</file>
+            <file>file:/C:/Users/Paola/Desktop/acueducto/Proyecto/AcueductosVeredales/src/vista/Gui_Consultar_Deudores_Inmuebles.java</file>
+            <file>file:/C:/Users/Paola/Desktop/acueducto/Proyecto/AcueductosVeredales/src/conexion/Servicio_deuda.java</file>
+            <file>file:/C:/Users/Paola/Desktop/acueducto/Proyecto/AcueductosVeredales/src/vista/Nuevo_index.java</file>
+            <file>file:/C:/Users/Paola/Desktop/acueducto/Proyecto/AcueductosVeredales/src/vista/Gui_financiacion.java</file>
+            <file>file:/C:/Users/Paola/Desktop/acueducto/Proyecto/AcueductosVeredales/src/conexion/Servicio_financiacion.java</file>
         </group>
     </open-files>
 </project-private>
