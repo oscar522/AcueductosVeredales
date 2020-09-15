@@ -209,7 +209,7 @@ public Object [][] ComboAcueducto(){
             "inmueble i, " +
             "servicio s " +
             "WHERE " +
-            "s.idservicio = i.alcantarillado " +
+            "s.idservicio = i.alcantarillado and i.estado ='AC'" +
             "and i.codigo_inmueble="+CODIGO+ " ");
             
              ResultSet res = null;
@@ -305,7 +305,7 @@ public Object [][] ComboAcueducto(){
         }
      
      }
-             public void BorrarInmueble(String Codigo)  {
+     public void BorrarInmueble(String Codigo)  {
 
         try {
 
