@@ -13,46 +13,33 @@ import conexion.Servicios_login;
 //import de.javasoft.plaf.synthetica.SyntheticaBlueMoonLookAndFeel;
 import javax.swing.*;
 
-/**
- *
- * @author OSCARPC
- */
 public class Gui_login extends javax.swing.JFrame {
-Servicios_login s;
-    /**
-     * Creates new form Gui_login
-     */
+
+    Servicios_login s;
+
     public Gui_login() {
+        setResizable(false);
         initComponents();
-        centrarVentana(); 
+        centrarVentana();
         s = new Servicios_login();
     }
-    
-    
-       //// colocar image de icino
+
+    //// colocar image de icino
     @Override
-     public Image getIconImage() {
-        Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("Img/Icon.png"));
-
-
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Img/Icon.png"));
         return retValue;
     }
-    
-    public void centrarVentana() {
-                // Se obtienen las dimensiones en pixels de la pantalla.
-                Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-                // Se obtienen las dimensiones en pixels de la ventana.
-                Dimension ventana = getSize();
-                // Una cuenta para situar la ventana en el centro de la pantalla.
 
-                setLocation((pantalla.width - ventana.width) / 2 ,0);
- }
-    
-    
-    
-    
-    
+    public void centrarVentana() {
+        // Se obtienen las dimensiones en pixels de la pantalla.
+        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+        // Se obtienen las dimensiones en pixels de la ventana.
+        Dimension ventana = getSize();
+        // Una cuenta para situar la ventana en el centro de la pantalla.
+        setLocation((pantalla.width - ventana.width) / 2, 0);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -210,9 +197,9 @@ Servicios_login s;
 
         String contrasena = pass.getText().trim();
 
-        if(usuario.equals("")){
+        if (usuario.equals("")) {
             JOptionPane.showMessageDialog(new JDialog(), "Indique el Usuario");
-        }else if (contrasena.equals("")){
+        } else if (contrasena.equals("")) {
             JOptionPane.showMessageDialog(new JDialog(), "Indique la Contraseña");
         } else {
             s.accesso(usuario, contrasena);
@@ -233,17 +220,12 @@ Servicios_login s;
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-    /*
-      try{
-            UIManager.setLookAndFeel(new SyntheticaBlueMoonLookAndFeel());
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "error"+ e.getMessage());
+
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+        } catch (Exception e) {
+            System.out.println(e);
         }
-        
-      Nuevo_index index = new Nuevo_index();
-      index.setVisible(true);
-      index.setLocationRelativeTo(null);
-*/
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Gui_login().setVisible(true);
