@@ -5,6 +5,7 @@
  */
 package vista;
 
+import conexion.Index;
 import modelo.Servicios_globales;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -13,33 +14,51 @@ import conexion.Servicios_login;
 //import de.javasoft.plaf.synthetica.SyntheticaBlueMoonLookAndFeel;
 import javax.swing.*;
 
+/**
+ *
+ * @author OSCARPC
+ */
 public class Gui_login extends javax.swing.JFrame {
-
-    Servicios_login s;
-
+Servicios_login s;
+    /**
+     * Creates new form Gui_login
+     */
     public Gui_login() {
-        setResizable(false);
         initComponents();
-        centrarVentana();
+        centrarVentana(); 
         s = new Servicios_login();
+        Index in = new Index();
+        Index.Imagen imagen = in.new Imagen();
+        jPanel3.add(imagen);
+        jPanel3.repaint();
     }
-
-    //// colocar image de icino
+    
+    
+    
+       //// colocar image de icino
     @Override
-    public Image getIconImage() {
-        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Img/Icon.png"));
+     public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("Img/Icon.png"));
+
+
         return retValue;
     }
-
+    
     public void centrarVentana() {
-        // Se obtienen las dimensiones en pixels de la pantalla.
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        // Se obtienen las dimensiones en pixels de la ventana.
-        Dimension ventana = getSize();
-        // Una cuenta para situar la ventana en el centro de la pantalla.
-        setLocation((pantalla.width - ventana.width) / 2, 0);
-    }
+                // Se obtienen las dimensiones en pixels de la pantalla.
+                Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+                // Se obtienen las dimensiones en pixels de la ventana.
+                Dimension ventana = getSize();
+                // Una cuenta para situar la ventana en el centro de la pantalla.
 
+                setLocation((pantalla.width - ventana.width) / 2 ,0);
+ }
+    
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -144,20 +163,21 @@ public class Gui_login extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(jLabel5))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel3))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel6)))
                 .addGap(0, 17, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,9 +217,9 @@ public class Gui_login extends javax.swing.JFrame {
 
         String contrasena = pass.getText().trim();
 
-        if (usuario.equals("")) {
+        if(usuario.equals("")){
             JOptionPane.showMessageDialog(new JDialog(), "Indique el Usuario");
-        } else if (contrasena.equals("")) {
+        }else if (contrasena.equals("")){
             JOptionPane.showMessageDialog(new JDialog(), "Indique la Contraseña");
         } else {
             s.accesso(usuario, contrasena);
@@ -220,12 +240,13 @@ public class Gui_login extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-
-        try {
+    
+      try{
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        } catch (Exception e) {
-            System.out.println(e);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "error"+ e.getMessage());
         }
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Gui_login().setVisible(true);

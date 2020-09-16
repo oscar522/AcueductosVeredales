@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
- /*
+/*
  * Gui_cliente.java
  *
  * Created on 17/06/2013, 05:46:43 PM
@@ -12,12 +12,13 @@ package vista;
 
 import conexion.Servicio_cliente;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import modelo.Cliente;
 import conexion.Index;
 import java.awt.Toolkit;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -25,92 +26,92 @@ import javax.swing.ImageIcon;
  */
 public class Gui_cliente extends javax.swing.JInternalFrame {
 
-    Servicio_cliente s;
-    Index i;
-    Object[][] datos;
-    String Genero1 = "";
+     Servicio_cliente s;
+     Index i;
+     Object[][] datos;
+     String Genero1 ="";
+     
 
-    /**
-     * Creates new form Gui_cliente
-     */
+    /** Creates new form Gui_cliente */
     public Gui_cliente() {
-        
-        this.setTitle("Clientes");
         initComponents();
         //centrarVentana();
         s = new Servicio_cliente();
         i = new Index();
-        //Index.Imagen imagen = i.new Imagen();
-        //jPanel3.add(imagen);
-        //jPanel3.repaint();
+        Index.Imagen imagen = i.new Imagen();
+        jPanel3.add(imagen);
+        jPanel3.repaint();
     }
     
+ ///////////////////////fondo de panel    
    
+     public void centrarVentana() {
+                // Se obtienen las dimensiones en pixels de la pantalla.
+                Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+                // Se obtienen las dimensiones en pixels de la ventana.
+                Dimension ventana = getSize();
+                // Una cuenta para situar la ventana en el centro de la pantalla.
+                setLocation((pantalla.width - ventana.width) / 2 ,0);
+ }
     
-    ///////////////////////fondo de panel    
-    public void centrarVentana() {
-        // Se obtienen las dimensiones en pixels de la pantalla.
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        // Se obtienen las dimensiones en pixels de la ventana.
-        Dimension ventana = getSize();
-        // Una cuenta para situar la ventana en el centro de la pantalla.
-        setLocation((pantalla.width - ventana.width) / 2, 0);
-    }
 
-    public Cliente armacliente() {
-
-        String documento = txtDocumento.getText().trim();
-        String Tipo_documento = cbTipo_documento.getSelectedItem().toString();
-        String Nombre = txtNombre.getText().trim();
-        String Genero = cbGenero.getSelectedItem().toString();
-        String telefono = txtTelefono.getText().trim();
-
-        if (documento.equals("")) {
-            JOptionPane.showMessageDialog(new JDialog(), "Falta digitar el documento");
-        } else {
-            if (documento.matches("[a-z]*")) {
-                JOptionPane.showMessageDialog(new JDialog(), "El documento debe ser numerico");
-            } else {
-                if (Tipo_documento.equals("Seleccionar")) {
-                    JOptionPane.showMessageDialog(new JDialog(), "Debe seleccinar una opción para el tipo de documento");
-                } else {
-                    if (Nombre.equals("")) {
-                        JOptionPane.showMessageDialog(new JDialog(), "Falta digitar el nombre");
-                    } else {
-                        if (Nombre.matches(("[0-9]*"))) {
-                            JOptionPane.showMessageDialog(new JDialog(), "El nombre no debe ser numerico");
-                        } else {
-                            if (Genero.equals("Seleccionar")) {
-                                JOptionPane.showMessageDialog(new JDialog(), "Debe seleccionar una opcion para el genero");
-                            } else {
-                                if (Genero.equals("Femenino")) {
-                                    Genero1 = "F";
-                                } else {
-                                    if (Genero.equals("Masculino")) {
-                                        Genero1 = "M";
-                                    } else {
-                                        if (telefono.matches("[a-z]*")) {
-                                            JOptionPane.showMessageDialog(new JDialog(), "El telefono debe ser numerico");
-                                        } else {
-
+    
+    public  Cliente armacliente(){
+        
+          String documento = txtDocumento.getText().trim();
+          String Tipo_documento =cbTipo_documento.getSelectedItem().toString();
+          String Nombre = txtNombre.getText().trim();
+          String Genero = cbGenero.getSelectedItem().toString();
+          String telefono = txtTelefono.getText().trim();
+              
+           if(documento.equals("")){
+              JOptionPane.showMessageDialog(new JDialog(), "Falta digitar el documento");
+             }else{
+                  if(documento.matches("[a-z]*")){
+                  JOptionPane.showMessageDialog(new JDialog(), "El documento debe ser numerico");
+                  }else{
+                      if(Tipo_documento.equals("Seleccionar")){
+                        JOptionPane.showMessageDialog(new JDialog(), "Debe seleccinar una opción para el tipo de documento");
+                       }else{
+                            if(Nombre.equals("")){
+                            JOptionPane.showMessageDialog(new JDialog(), "Falta digitar el nombre");
+                             }else{
+                                 if(Nombre.matches(("[0-9]*"))){
+                                 JOptionPane.showMessageDialog(new JDialog(), "El nombre no debe ser numerico");
+                                 }else{
+                                      if(Genero.equals("Seleccionar")){
+                                       JOptionPane.showMessageDialog(new JDialog(), "Debe seleccionar una opcion para el genero");
+                                       }else{
+                                           if(Genero.equals("Femenino")){
+                                             Genero1="F";
+                                           }else{
+                                               if(Genero.equals("Masculino")){
+                                                 Genero1="M";
+                                                }else{
+                                                   if(telefono.matches("[a-z]*")){
+                                                      JOptionPane.showMessageDialog(new JDialog(), "El telefono debe ser numerico");
+                                                    }else{
+                                                  
+                                                   }
+                                                 }
+                                             }
                                         }
                                     }
-                                }
-                            }
+                              }
                         }
-                    }
-                }
-            }
-        }
-        Cliente cliente = new Cliente(Nombre, documento, Tipo_documento, Genero1, telefono);
-
-        return cliente;
+                     }
+                 }
+          Cliente cliente = new Cliente (Nombre, documento, Tipo_documento, Genero1, telefono);
+        
+          return cliente;
     }
-
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
+    
+    
+    
+    /** This method is called from within the constructor to
+     * initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is
+     * always regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -140,14 +141,6 @@ public class Gui_cliente extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
-        setMaximizable(true);
-        addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
-            public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
-            }
-            public void ancestorResized(java.awt.event.HierarchyEvent evt) {
-                rezise(evt);
-            }
-        });
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -337,9 +330,7 @@ public class Gui_cliente extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel7)
                                 .addGap(16, 16, 16)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(22, 22, 22)
                                         .addComponent(jLabel8))))
@@ -368,14 +359,12 @@ public class Gui_cliente extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -425,12 +414,12 @@ public class Gui_cliente extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {                                      
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         // TODO add your handling code here:
         String documento = txtDocumento.getText();
         s.BorrarCliente(documento);
         
-    }                                     
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         // TODO add your handling code here:
@@ -439,23 +428,6 @@ public class Gui_cliente extends javax.swing.JInternalFrame {
         txtTelefono.setText("");
         
     }//GEN-LAST:event_jLabel15MouseClicked
-
-    private void rezise(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_rezise
-        // TODO add your handling code here:
-                                                    JOptionPane.showMessageDialog(new JDialog(), "El telefono debe ser numerico");
-
-    }//GEN-LAST:event_rezise
-
-    private void jLabel11MouseClickedd(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-       Cliente cliente = null;
-    cliente = armacliente();
-    s.insertar(cliente);
- // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MouseClicked
-
-    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
-        jLabel11.setIcon(new ImageIcon(getClass().getResource("/imagenes/Guardar2.fw.png")));// TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MouseEntered
 
     /**
      * @param args the command line arguments

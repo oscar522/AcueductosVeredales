@@ -9,7 +9,6 @@ import conexion.ConexionMysql;
 import conexion.Servicios_usuarios;
 
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -27,38 +26,34 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author OSCARPC
  */
 public class Nuevo_index extends javax.swing.JFrame {
-
-    Servicios_globales glo;
-
+Servicios_globales glo ;
     /**
      * Creates new form Nuevo_index
      */
     public Nuevo_index() {
-        setResizable(false); 
+        
         initComponents();
-        this.setTitle("Sistema de Facturacion");
+        this.setTitle("Sistema de Facturacion Centro Poblado el Totumo");
         centrarVentana();
-        glo = new Servicios_globales();
-
+         glo = new Servicios_globales();
+       
     }
 
-    public Image getIconImage() {
+       public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
                 getImage(ClassLoader.getSystemResource("Img/Icon.png"));
 
+
         return retValue;
     }
-
-    public void centrarVentana() {
-        // Se obtienen las dimensiones en pixels de la pantalla.
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        // Se obtienen las dimensiones en pixels de la ventana.
-        Dimension ventana = getSize();
-        // Una cuenta para situar la ventana en el centro de la pantalla.
-        setLocation((pantalla.width - ventana.width) / 2, 0);
-        
-    }
-
+     public void centrarVentana() {
+                // Se obtienen las dimensiones en pixels de la pantalla.
+                Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+                // Se obtienen las dimensiones en pixels de la ventana.
+                Dimension ventana = getSize();
+                // Una cuenta para situar la ventana en el centro de la pantalla.
+                setLocation((pantalla.width - ventana.width) / 2 ,0);
+ }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -128,12 +123,14 @@ public class Nuevo_index extends javax.swing.JFrame {
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EscritorioLayout.createSequentialGroup()
+                .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -141,7 +138,7 @@ public class Nuevo_index extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Escritorio)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -555,7 +552,7 @@ public class Nuevo_index extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -566,244 +563,252 @@ public class Nuevo_index extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Gui_cliente Cliente = new Gui_cliente();
-        Escritorio.add(Cliente);
-        Cliente.show();        // TODO add your handling code here:
+    Gui_cliente Cliente = new Gui_cliente();
+    Escritorio.add(Cliente);
+    Cliente.show();        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        Gui_inmueble inmueble = new Gui_inmueble();
-        Escritorio.add(inmueble);
-        inmueble.show();        // TODO add your handling code here:
+    Gui_inmueble inmueble = new Gui_inmueble();
+    Escritorio.add(inmueble);
+    inmueble.show();        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Gui_Consultar_Inmuable con_inmueble = new Gui_Consultar_Inmuable();
-        Escritorio.add(con_inmueble);
-        con_inmueble.show();      // TODO add your handling code here:
+    Gui_Consultar_Inmuable con_inmueble = new Gui_Consultar_Inmuable();
+    Escritorio.add(con_inmueble);
+    con_inmueble.show();      // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        Gui_Conceptos conceptos = new Gui_Conceptos();
-        Escritorio.add(conceptos);
-        conceptos.show();   // TODO add your handling code here:
+    Gui_Conceptos conceptos = new Gui_Conceptos();
+    Escritorio.add(conceptos);
+    conceptos.show();   // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-
-        ConexionMysql conm = new ConexionMysql();
-        Connection micone = conm.getConnection();
-
-        try {
-            String reporte = System.getProperty("user.dir") + "/src/ReportesFacturaCierre/ReporteCierreClientesActivos.jasper"; // direccion del reporte 
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(reporte);
-            JasperPrint print = JasperFillManager.fillReport(jasperReport, null, micone);
-            JasperViewer view = new JasperViewer(print, false);
-            view.setVisible(true);
-
-        } catch (Exception f) {
-            JOptionPane.showMessageDialog(new JDialog(), "ERROR al General informes " + f);
+        
+    ConexionMysql  conm = new ConexionMysql();
+    Connection micone = conm.getConnection();
+           
+        try{
+           String reporte = System.getProperty("user.dir")+"/src/ReportesFacturaCierre/ReporteCierreClientesActivos.jasper"; // direccion del reporte 
+           JasperReport jasperReport = (JasperReport) JRLoader.loadObject(reporte);
+           JasperPrint  print = JasperFillManager.fillReport(jasperReport, null, micone);
+           JasperViewer view = new JasperViewer (print,false);
+           view.setVisible(true);
+          
+        } catch (Exception f){
+           JOptionPane.showMessageDialog(new JDialog(), "ERROR al General informes "+f);
         }  // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        Gui_Consultar_Financiacion Con_Finan = new Gui_Consultar_Financiacion();
-        Escritorio.add(Con_Finan);
-        Con_Finan.show();   // TODO add your handling code here: // TODO add your handling code here:
+    Gui_Consultar_Financiacion Con_Finan = new Gui_Consultar_Financiacion();
+    Escritorio.add(Con_Finan);
+    Con_Finan.show();   // TODO add your handling code here: // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        Gui_Consulta_Financia_General Financiacion_General = new Gui_Consulta_Financia_General();
-        Escritorio.add(Financiacion_General);
-        Financiacion_General.show();   // TODO add your handling code here:    // TODO add your handling code here:
+    Gui_Consulta_Financia_General Financiacion_General = new Gui_Consulta_Financia_General();
+    Escritorio.add(Financiacion_General);
+    Financiacion_General.show();   // TODO add your handling code here:    // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        Gui_pago_financiacion pago_finan = new Gui_pago_financiacion();
-        Escritorio.add(pago_finan);
-        pago_finan.show();     // TODO add your handling code here:
+    Gui_pago_financiacion pago_finan = new Gui_pago_financiacion();
+    Escritorio.add(pago_finan);
+    pago_finan.show();     // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        Gui_financiacion financiacion = new Gui_financiacion();
-        Escritorio.add(financiacion);
-        financiacion.show();     // TODO add your handling code here:
+    Gui_financiacion financiacion = new Gui_financiacion();
+    Escritorio.add(financiacion);
+    financiacion.show();     // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
-        Gui_Reconexion_Corte f4 = new Gui_Reconexion_Corte();
-        Escritorio.add(f4);
-        f4.show();    // TODO add your handling code here:
+    Gui_Reconexion_Corte f4 = new Gui_Reconexion_Corte();  
+    Escritorio.add(f4);
+    f4.show();    // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        Gui_Factura f4 = new Gui_Factura();
-        Escritorio.add(f4);
-        f4.show();         // TODO add your handling code here:
+    Gui_Factura f4 = new Gui_Factura();
+    Escritorio.add(f4);
+    f4.show();         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        Gui_Duplicado_fact f4 = new Gui_Duplicado_fact();
-        Escritorio.add(f4);
-        f4.show();   // TODO add your handling code here:
+    Gui_Duplicado_fact f4 = new Gui_Duplicado_fact();
+    Escritorio.add(f4);
+    f4.show();   // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
-        Gui_cierre f4 = new Gui_cierre();
-        Escritorio.add(f4);
-        f4.show();         // TODO add your handling code here:
+     Gui_cierre f4 = new Gui_cierre();
+    Escritorio.add(f4);
+    f4.show();         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        Gui_pagos f4 = new Gui_pagos();
-        Escritorio.add(f4);
-        f4.show();     // TODO add your handling code here:
+      Gui_pagos f4 = new Gui_pagos();
+    Escritorio.add(f4);
+    f4.show();     // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-        Gui_Reconexion_Reco f4 = new Gui_Reconexion_Reco();
-        Escritorio.add(f4);
-        f4.show();  // TODO add your handling code here:
+    Gui_Reconexion_Reco f4 = new Gui_Reconexion_Reco();   
+    Escritorio.add(f4);
+    f4.show();  // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void jMenuItem22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem22ActionPerformed
-        Gui_Historial_Cliente f3 = new Gui_Historial_Cliente();
-        Escritorio.add(f3);
-        f3.show();         // TODO add your handling code here:
+    Gui_Historial_Cliente f3 = new Gui_Historial_Cliente();
+     Escritorio.add(f3);
+    f3.show();         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem22ActionPerformed
 
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
-        Gui_Consulta_Financia_General f4 = new Gui_Consulta_Financia_General();
-        Escritorio.add(f4);
-        f4.show();    // TODO add your handling code here:
+    Gui_Consulta_Financia_General f4 = new Gui_Consulta_Financia_General();   
+    Escritorio.add(f4);
+    f4.show();    // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
-        Gui_Consultar_Conceptos f4 = new Gui_Consultar_Conceptos();
-        Escritorio.add(f4);
-        f4.show();   // TODO add your handling code here:
+    Gui_Consultar_Conceptos f4 = new Gui_Consultar_Conceptos();   
+    Escritorio.add(f4);
+    f4.show();   // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem17ActionPerformed
 
     private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
-        Gui_Consultar_Financiacion f4 = new Gui_Consultar_Financiacion();
-        Escritorio.add(f4);
-        f4.show();    // TODO add your handling code here:
+     Gui_Consultar_Financiacion f4 = new Gui_Consultar_Financiacion();   
+    Escritorio.add(f4);
+    f4.show();    // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem18ActionPerformed
 
     private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
-        Gui_Consulta_Pagos_mesuales f4 = new Gui_Consulta_Pagos_mesuales();
-        Escritorio.add(f4);
-        f4.show();    // TODO add your handling code here:
+      Gui_Consulta_Pagos_mesuales f4 = new Gui_Consulta_Pagos_mesuales();   
+    Escritorio.add(f4);
+    f4.show();    // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem19ActionPerformed
 
     private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
-        Gui_Consultar_Inmuable f4 = new Gui_Consultar_Inmuable();
-        Escritorio.add(f4);
-        f4.show();  // TODO add your handling code here:
+    Gui_Consultar_Inmuable  f4 = new Gui_Consultar_Inmuable();  
+    Escritorio.add(f4);
+    f4.show();  // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
     private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
-        Gui_Consulta_Pagos_diarios2 f4 = new Gui_Consulta_Pagos_diarios2();
-        Escritorio.add(f4);
-        f4.show();// TODO add your handling code here:
+    Gui_Consulta_Pagos_diarios2 f4 = new Gui_Consulta_Pagos_diarios2();
+    Escritorio.add(f4);
+    f4.show();// TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem21ActionPerformed
 
     private void jMenuItem23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem23ActionPerformed
-        Gui_Consulta_Facturas_No_pagas f3 = new Gui_Consulta_Facturas_No_pagas();
-        Escritorio.add(f3);
-        f3.show();// TODO add your handling code here:
+    Gui_Consulta_Facturas_No_pagas f3= new Gui_Consulta_Facturas_No_pagas();
+    Escritorio.add(f3);
+    f3.show();// TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem23ActionPerformed
 
     private void jMenuItem24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem24ActionPerformed
-        Gui_Consulta_Facturas_No_pagas f3 = new Gui_Consulta_Facturas_No_pagas();
-        Escritorio.add(f3);
-        f3.show();// TODO add your handling code here:   // TODO add your handling code here:
+    Gui_Consulta_Facturas_No_pagas f3= new Gui_Consulta_Facturas_No_pagas();
+    Escritorio.add(f3);
+    f3.show();// TODO add your handling code here:   // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem24ActionPerformed
 
     private void jMenuItem26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem26ActionPerformed
-        Gui_CDE1 f3 = new Gui_CDE1();
-        Escritorio.add(f3);
-        f3.show();   // TODO add your handling code here:
+    Gui_CDE1 f3= new Gui_CDE1();
+    Escritorio.add(f3);
+    f3.show();   // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem26ActionPerformed
 
     private void jMenuItem25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem25ActionPerformed
-        Gui_Consultar_Deudores_Inmuebles1 f3 = new Gui_Consultar_Deudores_Inmuebles1();
-        Escritorio.add(f3);
-        f3.show();             // TODO add your handling code here:
+    Gui_Consultar_Deudores_Inmuebles1 f3= new Gui_Consultar_Deudores_Inmuebles1();
+    Escritorio.add(f3);
+    f3.show();             // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem25ActionPerformed
 
     private void jMenuItem29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem29ActionPerformed
-        Gui_Servicio f3 = new Gui_Servicio();
-        Escritorio.add(f3);
-        f3.show();     // TODO add your handling code here:
+    Gui_Servicio f3= new Gui_Servicio();
+    Escritorio.add(f3);
+    f3.show();     // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem29ActionPerformed
 
     private void jMenuItem33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem33ActionPerformed
-        String usuario = glo.getUser();
-
-        if (usuario.equals("root")) {
-            Gui_Delete_F f3 = new Gui_Delete_F();
-            Escritorio.add(f3);
-            f3.show();     // TODO add your handling code here:
-        } else {
-            JOptionPane.showMessageDialog(new JDialog(), "Acceso Denegado");
+             String usuario = glo.getUser();
+       
+        if (usuario.equals("root")){
+        Gui_Delete_F f3= new Gui_Delete_F();
+        Escritorio.add(f3);
+        f3.show();     // TODO add your handling code here:
+     } else {
+         JOptionPane.showMessageDialog(new JDialog(), "Acceso Denegado");
         }
     }//GEN-LAST:event_jMenuItem33ActionPerformed
 
     private void jMenuItem28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem28ActionPerformed
-        Gui_Insertar_Servicios f3 = new Gui_Insertar_Servicios();
-        Escritorio.add(f3);
-        f3.show();        // TODO add your handling code here:
+    Gui_Insertar_Servicios f3= new Gui_Insertar_Servicios();
+    Escritorio.add(f3);
+    f3.show();        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem28ActionPerformed
 
     private void jMenuItem30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem30ActionPerformed
-        Gui_Mensajes f3 = new Gui_Mensajes();
-        Escritorio.add(f3);
-        f3.show();   // TODO add your handling code here:
+    Gui_Mensajes f3= new Gui_Mensajes();
+    Escritorio.add(f3);
+    f3.show();   // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem30ActionPerformed
 
     private void jMenuItem31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem31ActionPerformed
-        Gui_Backup f3 = new Gui_Backup();
-        Escritorio.add(f3);
-        f3.show();    // TODO add your handling code here:
+    Gui_Backup f3= new Gui_Backup();
+    Escritorio.add(f3);
+    f3.show();    // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem31ActionPerformed
 
     private void jMenuItem32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem32ActionPerformed
-        String direccion = "http://localhost/ManualUsuario/";
-        try {
+      String direccion = "http://localhost/ManualUsuario/";
+        try
+        {
             Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + direccion);
-        } catch (Exception err) {
-            JOptionPane.showMessageDialog(null, "Error: " + err);
+        }
+        catch(Exception err)
+        {
+            JOptionPane.showMessageDialog(null,"Error: "+err);
         }        // TODO add your handling code here:      e:
     }//GEN-LAST:event_jMenuItem32ActionPerformed
 
     private void jMenuItem34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem34ActionPerformed
-        String usuario = glo.getUser();
-
-        if (usuario.equals("root")) {
-
-            Gui_usuarios f3 = new Gui_usuarios();
+     String usuario = glo.getUser();
+       
+        if (usuario.equals("root")){
+        
+            Gui_usuarios f3= new Gui_usuarios();
             Escritorio.add(f3);
-            f3.show();
-
+            f3.show(); 
+    
         } else {
-            JOptionPane.showMessageDialog(new JDialog(), "Acceso Denegado");
+         JOptionPane.showMessageDialog(new JDialog(), "Acceso Denegado");
         }
-        // TODO add your handling code here:        // TODO add your handling code here:
+     // TODO add your handling code here:        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem34ActionPerformed
 
     private void jMenuItem36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem36ActionPerformed
-        String usuario = glo.getUser();
-
-        if (usuario.equals("root")) {
-
-            Gui_Modificar_Factura f3 = new Gui_Modificar_Factura();
-            Escritorio.add(f3);
-            f3.show();    // TODO add your handling code here:
-        } else {
-            JOptionPane.showMessageDialog(new JDialog(), "Acceso Denegado");
+             String usuario = glo.getUser();
+       
+        if (usuario.equals("root")){ 
+        
+        Gui_Modificar_Factura f3= new Gui_Modificar_Factura();
+        Escritorio.add(f3);
+        f3.show();    // TODO add your handling code here:
+         } else {
+         JOptionPane.showMessageDialog(new JDialog(), "Acceso Denegado");
         }
     }//GEN-LAST:event_jMenuItem36ActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Escritorio;
