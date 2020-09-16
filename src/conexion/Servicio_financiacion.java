@@ -519,6 +519,36 @@ public class Servicio_financiacion {
         return datos;
 
     }
+    
+    public Object[][] ConsultarNumeroFacturaFinanciacion(String codigo_inmueble) {
+
+        Object[][] datos = new String[1][1];
+        try {
+            PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement("select max(f.codigo_factura) as factura "
+                    + " FROM  factura f, inmueble i, cliente c  "
+                    + " WHERE  f.codigo_inmueble = i.codigo_inmueble and c.documento= i.documento \n"
+                    + " and f.codigo_inmueble =  " + codigo_inmueble);
+
+            ResultSet res = null;
+            res = (ResultSet) pstm.executeQuery();
+            while (res.next()) {
+
+                String codigo_factura = res.getString("factura");
+
+                datos[0][0] = codigo_factura;
+
+            }
+
+            res.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(new JDialog(), "ERROR AL REALIZAR LA CONSULTA VERIFIQUE EL CODIGO DEL INMUEBLE");
+        }
+
+        return datos;
+
+    }
+
 
     public String CodigoIva(String iva) {
 

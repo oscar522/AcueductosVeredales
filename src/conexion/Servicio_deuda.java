@@ -94,6 +94,8 @@ public class Servicio_deuda {
         return datos;
 
     }
+    
+   
 
     public void CancelarDeuda(String codigo) {
         try {
