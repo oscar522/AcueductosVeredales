@@ -23,6 +23,7 @@ public class Gui_Duplicado_fact extends javax.swing.JInternalFrame {
      */
     public Gui_Duplicado_fact() {
          initComponents();
+         this.setTitle("Duplicado de Facturas");
         f = new Index();
         s = new Servicio_factura();
         Index.Imagen imagen = f.new Imagen();

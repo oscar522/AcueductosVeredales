@@ -44,6 +44,7 @@ public class Gui_financiacion extends javax.swing.JInternalFrame {
     public Gui_financiacion() {
         
         initComponents();
+        this.setTitle("Financiación");
         //centrarVentana();
         int numero=0;
         ComboAlcantarillado();

@@ -28,6 +28,7 @@ Object[][] datos1;    /**
      */
     public Gui_pago_financiacion() {
         initComponents();
+        this.setTitle("Pago de Cuotas de Financiación");
         //centrarVentana();
         i = new Index();
         Index.Imagen imagen = i.new Imagen();

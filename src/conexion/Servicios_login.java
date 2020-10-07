@@ -18,6 +18,8 @@ import vista.Gui_cierre;
 import vista.Gui_index;
 import vista.Gui_usuarios;
 import vista.Nuevo_index;
+import conexion.ConexionMysql;
+import vista.Gui_login;
 
 /**
  *
@@ -57,9 +59,19 @@ public class Servicios_login {
                 JOptionPane.showMessageDialog(null,"In - Correcto : Usuario o contraseña ");
             }
         }else {
-            JOptionPane.showMessageDialog(null,"Bienvenido "+nombre_usu);
-            Nuevo_index index = new Nuevo_index();
-            index.show();
+            
+            String rootValid = conm.validar_root(user, pass);
+            
+            if (rootValid.equals("ok")) {
+                JOptionPane.showMessageDialog(null,"Bienvenido "+nombre_usu);
+                Nuevo_index index = new Nuevo_index();
+                index.show();
+            }else {
+                JOptionPane.showMessageDialog(null,"Root invalido "+nombre_usu);
+                Gui_login Gui_login_ = new Gui_login();
+                Gui_login_.show();
+            }
+            
         }
     }catch(SQLException e){
         System.out.println(e);

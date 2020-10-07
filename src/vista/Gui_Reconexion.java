@@ -23,7 +23,7 @@ public class Gui_Reconexion extends javax.swing.JFrame {
      */
     public Gui_Reconexion() {
         initComponents();
-        
+        this.setTitle("Corte del Servicio");
         i = new Index();
         Index.Imagen imagen = i.new Imagen();
         jPanel1.add(imagen);

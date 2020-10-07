@@ -20,7 +20,7 @@ public class Gui_Historial_Cliente extends javax.swing.JInternalFrame {
      */
     public Gui_Historial_Cliente() {
         initComponents();
-        initComponents();
+        this.setTitle("Historial de Clientes");
      s = new Servicio_cierre();
      in = new Index();
      Index.Imagen imagen = in.new Imagen();

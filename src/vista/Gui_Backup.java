@@ -31,7 +31,7 @@ import javax.swing.JOptionPane;
  * @author OSCARPC
  */
 public final class Gui_Backup extends javax.swing.JInternalFrame {
-ConexionMysql conm;
+
 
     /**
      * Creates new form Gui_Backup1
@@ -39,42 +39,38 @@ ConexionMysql conm;
     public Gui_Backup() {
         initComponents();
          GenerarBackupMySQL(); 
-         conm = new ConexionMysql();
+        // conm = new ConexionMysql();
     }
     
        public String ConsulRuta (){
      
-  String ruta_back = "";
-   
-           String sql = "SELECT ruta_back FROM  fechas_facturacion " ;
-         
-        System.out.println(sql);
-        try{
-        //com.mysql.jdbc.PreparedStatement pstm = (com.mysql.jdbc.PreparedStatement) conm.getConnection().prepareStatement(sql);
-         PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement(sql);
-        ResultSet res = null;
-        res = (ResultSet) pstm.executeQuery();
-        while(res.next()){
-        
-         ruta_back = res.getString("ruta_back");
-        
-       
-        
-        }
+            ConexionMysql conm = new ConexionMysql();
+           String ruta_back = "";
+           try {    
+                           
+            ResultSet res = null;
+            PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement( 
+                    "SELECT ruta_back FROM  fechas_facturacion");
 
-        res.close();
-        }catch(SQLException e){
-        System.out.println(e);
-        JOptionPane.showMessageDialog(new JDialog(), "ERROR AL REALIZAR LA CONSULTA VERIFIQUE EL NUMERO DE DOCUMENTO");
-        }
-         
+            res = (ResultSet) pstm.executeQuery();
+            while(res.next()){
+                ruta_back = res.getString("ruta_back");
+               
+            }
+            res.close();
+           
+     }
+     catch(SQLException e){
+     System.out.println(e);
+     }
+  
      return ruta_back;
      }
     
 void GenerarBackupMySQL(){
-    
-     // String ruta = ConsulRuta();
-    String ruta = "C:\\wamp\\bin\\mysql\\mysql5.6.17\\bin\\";
+   
+     String ruta = ConsulRuta();
+    //String ruta = "C:\\wamp\\bin\\mysql\\mysql5.6.17\\bin\\";
        
      
         java.util.Date fecha = new Date();

@@ -24,7 +24,7 @@ public class Gui_Insertar_Servicios extends javax.swing.JInternalFrame {
      */
     public Gui_Insertar_Servicios() {
          initComponents();
-      
+         this.setTitle("Servicios");
         i = new Index();
         Index.Imagen imagen = i.new Imagen();
         jPanel1.add(imagen);

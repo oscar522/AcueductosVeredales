@@ -33,11 +33,12 @@ public class Servicio_deuda {
             String Sql = "SELECT " +
                 "count(*) as total " +
                 "From " +
-                "inmueble i " +
-                "Inner join cliente c on c.documento = i.documento  " +
-                "Inner join factura f on i.codigo_inmueble = f.codigo_inmueble " +
+                "factura f " +
+                "Inner join deudor d on d.codigo_factura = f.codigo_factura " +
+                "Inner join inmueble i on f.codigo_inmueble = i.codigo_inmueble " +
+                "Inner join cliente c on c.documento = i.documento " +    
                 "Where " +
-                " i.codigo_inmueble ='" +CODIGO+ "'";
+                "  d.estado='ac' and i.codigo_inmueble ='" +CODIGO+ "'";
 
             PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement(Sql);
 
@@ -48,17 +49,19 @@ public class Servicio_deuda {
         } catch (SQLException e) {
             System.out.println(e);
         }
-
+        
+        
         Object[][] datos = new String[registros][6];
         try {
             String sql = "Select " +
-                    "c.documento, c.nombre, i.direccion, f.codigo_factura , f.total_a_pagar, f.codigo_factura " +
+                    "c.documento, c.nombre, i.direccion, d.iddeuda, f.total_a_pagar, f.codigo_factura " +
                     "From "+
-                    "inmueble i " +
-                    "Inner join cliente c on c.documento = i.documento  " +
-                    "Inner join factura f on i.codigo_inmueble = f.codigo_inmueble " +
-                    "Where " +
-                    " i.codigo_inmueble ='" +CODIGO+ "'";
+                    "factura f " +
+                        "Inner join deudor d on d.codigo_factura = f.codigo_factura " +
+                        "Inner join inmueble i on f.codigo_inmueble = i.codigo_inmueble " +
+                        "Inner join cliente c on c.documento = i.documento " +    
+                        "Where " +
+                        "  d.estado='ac' and i.codigo_inmueble ='" +CODIGO+ "'";
 
             PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement(sql);
             ResultSet res = null;
@@ -90,8 +93,9 @@ public class Servicio_deuda {
             System.out.println(e);
             JOptionPane.showMessageDialog(new JDialog(), "ERROR AL REALIZAR LA CONSULTA VERIFIQUE EL NUMERO DE DOCUMENTO");
         }
-
+               
         return datos;
+         
 
     }
     

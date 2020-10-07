@@ -44,6 +44,7 @@ public class Gui_inmueble extends javax.swing.JInternalFrame {
           modelocbAlcantarillado = new javax.swing.DefaultComboBoxModel(new String[] {});
           modelocbAcueducto = new javax.swing.DefaultComboBoxModel(new String[] {});
         initComponents();
+        this.setTitle("Inmueble");
         s = new Servicio_inmueble();
        // centrarVentana();
         int numero=0;

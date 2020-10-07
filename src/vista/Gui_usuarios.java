@@ -30,6 +30,7 @@ public class Gui_usuarios extends javax.swing.JInternalFrame {
         s = new Servicios_usuarios();
         Index.Imagen imagen = i.new Imagen();
         initComponents();
+        this.setTitle("Usuarios");
         jPanel3.add(imagen);
         jPanel3.repaint();
    

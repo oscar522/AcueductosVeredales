@@ -26,6 +26,7 @@ public class Gui_Consultar_Financiacion extends javax.swing.JInternalFrame {
      */
     public Gui_Consultar_Financiacion() {
         initComponents();
+        this.setTitle("Consulta de Financiación");
               i = new Index();
         Index.Imagen imagen = i.new Imagen();
         jPanel1.add(imagen);

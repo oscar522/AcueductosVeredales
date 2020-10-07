@@ -195,12 +195,12 @@ public class Servicio_servicio {
          return datos;
            } 
        
-       public  void insertarFechas(String inicio, String fin, String cierre, String generacion, String copia){
+       public  void insertarFechas(String inicio, String fin, String cierre, String generacion, String copia, String reconexion){
         
          String q ="";
         
         try {
-         q = "UPDATE fechas_facturacion SET cierre = '"+cierre+"', factura = '"+generacion +"', copia = '"+copia +"', inicio = '"+inicio+"', fin = '"+fin+"'";
+         q = "UPDATE fechas_facturacion SET cierre = '"+cierre+"', factura = '"+generacion +"', copia = '"+copia +"', inicio = '"+inicio+"', reconexion = '"+reconexion+"', fin = '"+fin+"'";
         
               PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement(q);
               System.out.println(pstm);
@@ -215,9 +215,9 @@ public class Servicio_servicio {
        
        public Object [][] ConsultarDias(){
 
-        Object[][] datos = new String[1][5];
+        Object[][] datos = new String[1][6];
         try{
-            PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement("SELECT cierre, factura, copia, inicio, fin FROM fechas_facturacion");
+            PreparedStatement pstm = (PreparedStatement) conm.getConnection().prepareStatement("SELECT cierre, factura, copia, inicio, fin, reconexion FROM fechas_facturacion");
              ResultSet res = null;
            res = (ResultSet) pstm.executeQuery();
              while(res.next()){
@@ -227,12 +227,14 @@ public class Servicio_servicio {
             String copia = res.getString("copia");
             String inicio = res.getString("inicio");
             String fin = res.getString("fin");
+            String rec = res.getString("reconexion");
            
                 datos[0][0] = cierre;
                 datos[0][1] = factura;
                 datos[0][2] = copia;
                 datos[0][3] = inicio;
                 datos[0][4] = fin;
+                datos[0][5] = rec;
                            }
 
             res.close();
@@ -301,6 +303,17 @@ public class Servicio_servicio {
         }catch(SQLException e){
             System.out.println(e);
              JOptionPane.showMessageDialog(new JDialog(), "ERROR AL REALIZAR LA ELIMINACION");
+        }
+     
+     try{
+      PreparedStatement pstm5 = (PreparedStatement) conm.getConnection().prepareStatement("delete from periodos where fechaPago = '"+fecha+"'");
+              pstm5.execute();
+              pstm5.close();
+
+              //JOptionPane.showMessageDialog(new JDialog(), "TABLA PERIODO ELIMINADA"); 
+        }catch(SQLException e){
+            System.out.println(e);
+            // JOptionPane.showMessageDialog(new JDialog(), "ERROR ELIMINACION");
         }
      
  }

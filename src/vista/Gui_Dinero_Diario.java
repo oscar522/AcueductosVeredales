@@ -29,6 +29,7 @@ public class Gui_Dinero_Diario extends javax.swing.JFrame {
     Servicio_dinero_diario c = new Servicio_dinero_diario();
     public Gui_Dinero_Diario() {
         initComponents();
+        this.setTitle("Reporte Diario de Dinero Entrante ");
          in = new Index();
          centrarVentana();
      Index.Imagen imagen = in.new Imagen();

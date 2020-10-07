@@ -22,6 +22,7 @@ public class Gui_Factura extends javax.swing.JInternalFrame {
      */
     public Gui_Factura() {
         initComponents();
+        this.setTitle("Generar Facturación");
         s = new Servicio_factura();
         i = new Index();
         Index.Imagen imagen = i.new Imagen();

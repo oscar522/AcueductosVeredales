@@ -20,6 +20,7 @@ public class Gui_Consulta_Facturas_No_pagas extends javax.swing.JInternalFrame {
      */
     public Gui_Consulta_Facturas_No_pagas() {
      initComponents();
+     this.setTitle("Reporte de facturas no pagas");
      s = new Servicio_cierre();
      in = new Index();
      Index.Imagen imagen = in.new Imagen();
@@ -52,7 +53,7 @@ public class Gui_Consulta_Facturas_No_pagas extends javax.swing.JInternalFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial Narrow", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("FECHA DE PAGO : ");
+        jLabel6.setText("FECHA DE SUSPENCIÓN : ");
 
         jLabel7.setFont(new java.awt.Font("Arial Narrow", 3, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
@@ -75,7 +76,7 @@ public class Gui_Consulta_Facturas_No_pagas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 374, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jLabel6)

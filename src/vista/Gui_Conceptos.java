@@ -38,6 +38,7 @@ public final class Gui_Conceptos extends javax.swing.JInternalFrame {
     public Gui_Conceptos() {
         
         initComponents();
+        this.setTitle("Conceptos");
          //centrarVentana();
         i = new Servicio_inmueble();
         c = new Servicio_concepto();

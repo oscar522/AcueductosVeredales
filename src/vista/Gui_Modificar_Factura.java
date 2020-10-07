@@ -30,6 +30,7 @@ public class Gui_Modificar_Factura extends javax.swing.JInternalFrame {
         i = new Index();
         Index.Imagen imagen = i.new Imagen();
         initComponents();
+        this.setTitle("Modificar Facturas");
            jPanel3.add(imagen);
         jPanel3.repaint();
         

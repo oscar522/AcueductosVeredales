@@ -23,6 +23,7 @@ public class Gui_Delete_F extends javax.swing.JInternalFrame {
      */
     public Gui_Delete_F() {
         initComponents();
+        this.setTitle("Eliminar Financiación");
         i = new Index();
         Index.Imagen imagen = i.new Imagen();
         s = new Servicio_servicio();

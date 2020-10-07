@@ -22,6 +22,7 @@ public class Gui_Consulta_Pagos_diarios2 extends javax.swing.JInternalFrame {
      */
     public Gui_Consulta_Pagos_diarios2() {
         initComponents();
+        this.setTitle("Reporte de Pagos Diarios");
          i = new Index();
         Index.Imagen imagen = i.new Imagen();
         j = new Index();

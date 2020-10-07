@@ -24,6 +24,7 @@ Index in;
      */
     public Gui_Consultar_Deudores_Inmuebles1() {
     initComponents();
+    this.setTitle("Consulta de Deudores por Inmueble");
     in = new Index();
     Index.Imagen imagen = in.new Imagen();
     jPanel6.add(imagen);

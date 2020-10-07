@@ -31,6 +31,7 @@ public final class Gui_Consultar_Deudores extends javax.swing.JFrame {
     /** Creates new form Gui_Consultar_Deudores */
     public Gui_Consultar_Deudores() {
         initComponents();
+        this.setTitle("Consulta de Deudores");
          in = new Index();
          centrarVentana();
      Index.Imagen imagen = in.new Imagen();

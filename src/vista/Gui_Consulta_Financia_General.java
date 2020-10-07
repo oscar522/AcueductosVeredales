@@ -22,7 +22,7 @@ public class Gui_Consulta_Financia_General extends javax.swing.JInternalFrame {
      */
     public Gui_Consulta_Financia_General() {
         initComponents();
-            initComponents();
+        this.setTitle("Consulta General de Financiación");
         in = new Index();
         Index.Imagen imagen = in.new Imagen();
      jPanel1.add(imagen);

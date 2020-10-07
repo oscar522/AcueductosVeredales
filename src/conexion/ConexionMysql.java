@@ -4,7 +4,10 @@
  */
 
 package conexion; 
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import modelo.Servicios_globales;
@@ -28,6 +31,48 @@ public class ConexionMysql {
     }
     public void desconectar(){
         conn = null;
+    }
+    
+    public String validar_root(String usuario, String contrasena){
+        
+         String key_="";     
+         String Contrasena_in="";
+         String respuesta = "";
+
+         try {
+                    java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+                    byte[] array = md.digest(Key.getBytes());
+                    StringBuffer sb = new StringBuffer();
+                    for (int i = 0; i < array.length; ++i) {
+                      sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+                    }
+                    key_ = sb.toString();
+
+                } catch (java.security.NoSuchAlgorithmException e) {
+                }
+         
+         try {
+                    java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+                    byte[] array = md.digest(contrasena.getBytes());
+                    StringBuffer sb = new StringBuffer();
+                    for (int i = 0; i < array.length; ++i) {
+                      sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+                    }
+                    Contrasena_in = sb.toString();
+
+                } catch (java.security.NoSuchAlgorithmException e) {
+                }
+         
+        if (Contrasena_in.equals(key_)) {
+            
+            respuesta = "ok";
+        }else{ 
+                    respuesta = "no";
+
+        }
+         return respuesta;
+
+        
     }
     
     public void conectar (){

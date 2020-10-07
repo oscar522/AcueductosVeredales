@@ -35,6 +35,7 @@ public class Gui_cliente extends javax.swing.JInternalFrame {
     /** Creates new form Gui_cliente */
     public Gui_cliente() {
         initComponents();
+        this.setTitle("Clientes");
         //centrarVentana();
         s = new Servicio_cliente();
         i = new Index();

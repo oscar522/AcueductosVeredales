@@ -23,6 +23,7 @@ Index i = new Index();
      */
     public Gui_Reconexion_Reco() {
         initComponents();
+        this.setTitle("Reconexión del Servicio");
         i = new Index();
         Index.Imagen imagen2 = i.new Imagen();
         jPanel2.add(imagen2);

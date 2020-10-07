@@ -30,6 +30,7 @@ public class Gui_CDE1 extends javax.swing.JInternalFrame {
      */
     public Gui_CDE1() {
      initComponents();
+     this.setTitle("Dinero Entrante");
      in = new Index();
      Index.Imagen imagen = in.new Imagen();
      jPanel1.add(imagen);

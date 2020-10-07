@@ -25,6 +25,7 @@ public class Gui_pagos extends javax.swing.JInternalFrame {
      */
     public Gui_pagos() {
         initComponents();
+        this.setTitle("Pagos");
         String CodigoFact = s.NumeroGestionFactura();
         lbCodigoFact.setText(CodigoFact);
         Index.Imagen imagen = i.new Imagen();
@@ -109,8 +110,8 @@ public class Gui_pagos extends javax.swing.JInternalFrame {
                             .addComponent(jLabel9))
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbCodigoFact)
-                            .addComponent(txtCodigoFac, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCodigoFac, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbCodigoFact, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(54, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
@@ -150,7 +151,7 @@ public class Gui_pagos extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel8))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

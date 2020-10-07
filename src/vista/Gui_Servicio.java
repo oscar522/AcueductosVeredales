@@ -25,6 +25,7 @@ public class Gui_Servicio extends javax.swing.JInternalFrame {
      */
     public Gui_Servicio() {
          initComponents();
+         this.setTitle("Modificar Tarifas");
         s = new Servicio_servicio();
         i = new Index();
         Index.Imagen imagen = i.new Imagen();

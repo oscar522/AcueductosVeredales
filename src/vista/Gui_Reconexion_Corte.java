@@ -23,7 +23,7 @@ public class Gui_Reconexion_Corte extends javax.swing.JInternalFrame {
      */
     public Gui_Reconexion_Corte() {
            initComponents();
-        
+           this.setTitle("Corte del Servicio");
         i = new Index();
         Index.Imagen imagen = i.new Imagen();
         Index.Imagen imagen2 = i.new Imagen();

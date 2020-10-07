@@ -33,6 +33,7 @@ public class Gui_Consultar_Inmuable extends javax.swing.JInternalFrame {
     /** Creates new form Gui_consultar_inmuable */
     public Gui_Consultar_Inmuable() {
         initComponents();
+        this.setTitle("Consultar Inmuebles por Usuario");
         //centrarVentana();
         i = new Index();
         Index.Imagen imagen = i.new Imagen();

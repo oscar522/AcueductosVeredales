@@ -24,7 +24,7 @@ public class Gui_Consultar_Conceptos extends javax.swing.JInternalFrame {
      */
     public Gui_Consultar_Conceptos() {
          initComponents();
-    
+         this.setTitle("Consulta General de Conceptos");
         f = new Index();
         Index.Imagen imagen = f.new Imagen();
         jPanel1.add(imagen);
